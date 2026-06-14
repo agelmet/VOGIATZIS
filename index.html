@@ -76,7 +76,7 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:400;line-height:1.06;lette
 #loader.done{opacity:0;visibility:hidden;transform:scale(1.04)}
 .load-wrap{position:relative;width:min(80vw,340px);text-align:center; display:flex; flex-direction:column; align-items:center;}
 .load-logo{
-  width:160px; height:auto; margin-bottom:2rem; border-radius:6px; opacity:0;
+  width:220px; height:auto; margin-bottom:2rem; border-radius:6px; opacity:0;
   animation: logoIn 1.2s var(--ease-expo) .1s forwards;
   box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
@@ -102,7 +102,7 @@ header.scrolled .nav{padding-top:1rem;padding-bottom:1rem}
 .brand{display:flex;align-items:center;gap:.75rem;color:#fff;transition:color .5s, transform .3s var(--ease-spring)}
 .brand:hover{transform:scale(1.02)}
 header.scrolled .brand{color:var(--slate-ink)}
-.brand-mark{width:38px;height:38px;flex:none; border-radius:4px; object-fit:cover;}
+.brand-mark{width:52px;height:52px;flex:none; border-radius:4px; object-fit:cover;}
 .brand-txt{font-family:var(--ff-display);font-size:1.18rem;letter-spacing:.04em;line-height:1}
 .brand-txt small{display:block;font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.22em;opacity:.7;margin-top:3px}
 .nav-links{display:flex;align-items:center;gap:2.2rem}
@@ -460,6 +460,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 </head>
 <body>
 
+<!-- ============ LOADER ============ -->
 <div id="loader">
   <div class="load-wrap">
     <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry Logo" class="load-logo">
@@ -468,6 +469,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </div>
 
+<!-- ============ NAV ============ -->
 <header id="header">
   <nav class="nav" aria-label="Κύρια πλοήγηση">
     <a href="#top" class="brand" aria-label="Vogiatzis Dentistry — Αρχική">
@@ -495,6 +497,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
 <span id="top"></span>
 
+<!-- ============ HERO ============ -->
 <div class="hero-bg" aria-hidden="true"></div>
 <div class="hero-scrim" aria-hidden="true"></div>
 <div class="scan-beam" aria-hidden="true"></div>
@@ -527,6 +530,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
 <div class="sheet">
 
+<!-- ============ MARQUEE ============ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>Ψηφιακή Αποτύπωση iTero 5D</span><span>Εμφυτευματολογία</span><span>Αόρατη Ορθοδοντική</span><span>Invisalign & Spark</span><span>Smile Design</span><span>Αισθητική Οδοντιατρική</span><span>Πρόληψη</span>
@@ -534,6 +538,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </div>
 
+<!-- ============ DOCTORS / ABOUT ============ -->
 <section class="section" id="doctors">
   <div class="intro-head reveal">
     <span class="eyebrow">Οι Οδοντίατροι</span>
@@ -580,6 +585,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   <p class="pullquote reveal">«Ένα όμορφο χαμόγελο είναι η ελευθερία να γελάτε <span>χωρίς δεύτερη σκέψη</span>.»</p>
 </section>
 
+<!-- ============ SERVICES ============ -->
 <section class="services" id="services">
   <div class="section">
     <div class="services-head">
@@ -653,6 +659,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
+<!-- ============ PROCESS ============ -->
 <section class="section" id="process">
   <div class="intro-head reveal">
     <span class="eyebrow">Η Διαδρομή σας</span>
@@ -666,6 +673,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
+<!-- ============ TECH / iTERO ============ -->
 <section class="tech" id="tech">
   <div class="section">
     <div class="tech-grid">
@@ -691,13 +699,14 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
       <div class="tech-visual reveal d2">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-29.jpg" alt="Σύγχρονος εξοπλισμός και ψηφιακή ροή εργασίας στα οδοντιατρεία Βογιατζή" loading="lazy">
+        <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/refs/heads/main/Gemini_Generated_Image_n2on7in2on7in2on.png" alt="Σύγχρονος εξοπλισμός και ψηφιακή ροή εργασίας στα οδοντιατρεία Βογιατζή" loading="lazy">
         <div class="hud"><span class="hud-tl">SCAN · LIVE</span><span class="hud-br">3D · MODE 5D</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ VALUES ============ -->
 <section class="section values" id="values">
   <div class="reveal">
     <span class="eyebrow">Η Φιλοσοφία μας</span>
@@ -722,6 +731,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
+<!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="section">
     <div class="rev-head">
@@ -783,6 +793,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
 <section class="section" id="faq">
   <div class="faq-wrap">
     <div class="faq-intro reveal">
@@ -818,6 +829,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
+<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="section">
     <div class="contact-grid">
@@ -864,17 +876,20 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
+<!-- ============ FOOTER ============ -->
 <footer>
   <div class="foot">
     <div style="display:flex; align-items:center; gap:1.2rem;">
-      <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry Logo" style="width:42px; height:42px; border-radius:4px; object-fit:cover;">
+      <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry Logo" style="width:56px; height:56px; border-radius:4px; object-fit:cover;">
       <div>© <span id="year"></span> Vogiatzis Dentistry · Νίκος & Φώτης Βογιατζής</div>
     </div>
     <div class="foot-credit">Designed by <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></div>
   </div>
 </footer>
 
-</div><script>
+</div><!-- /sheet -->
+
+<script>
 (() => {
   'use strict';
 
