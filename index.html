@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vogiatzis Dentistry — Νίκος & Φώτης Βογιατζής | Ψηφιακή Οδοντιατρική Κηφισιά</title>
-<meta name="description" content="Οδοντιατρείο Βογιατζής στη Νέα Κηφισιά & Πειραιά. Ψηφιακή οδοντιατρική με ενδοστοματικό σαρωτή iTero Element 5D, εμφυτεύματα, αισθητική & εξειδικευμένη ορθοδοντική (Invisalign, Spark).">
-<meta property="og:title" content="Vogiatzis Dentistry — Ψηφιακή Οδοντιατρική & Ορθοδοντική">
-<meta property="og:description" content="Επιστημονική αρτιότητα συναντά ψηφιακή ακρίβεια. Νίκος & Φώτης Βογιατζής, Νέα Κηφισιά & Πειραιάς.">
+<title>Vogiatzis Dentistry — Νίκος & Φώτης Βογιατζής | Σύγχρονη Οδοντιατρική & Ορθοδοντική</title>
+<meta name="description" content="Οδοντιατρεία Βογιατζής σε Νέα Κηφισιά & Πειραιά. Κορυφαία ψηφιακή οδοντιατρική με iTero Element 5D, προηγμένη εμφυτευματολογία, αισθητική αποκατάσταση και αόρατη ορθοδοντική (Invisalign).">
+<meta property="og:title" content="Vogiatzis Dentistry — Αριστεία στην Ψηφιακή Οδοντιατρική & Ορθοδοντική">
+<meta property="og:description" content="Εκεί που η επιστημονική αρτιότητα συναντά την ψηφιακή ακρίβεια. Νίκος & Φώτης Βογιατζής, Νέα Κηφισιά & Πειραιάς.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-28.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +17,14 @@
 :root{
   --slate:#4E5864;          /* brand body */
   --slate-deep:#363E48;     /* deeper sections */
-  --slate-ink:#252B33;      /* near-black slate */
+  --slate-ink:#1A1E24;      /* near-black slate - darkened for premium feel */
   --ice:#B0EDFF;            /* scanner / accent */
   --ice-soft:#D7F4FF;
   --ice-deep:#7FD4F0;
   --paper:#F4F8FA;          /* cool off-white */
   --paper-pure:#FFFFFF;
-  --line:rgba(78,88,100,.14);
-  --line-light:rgba(255,255,255,.16);
+  --line:rgba(78,88,100,.12);
+  --line-light:rgba(255,255,255,.12);
 
   --ff-display:"Fraunces", Georgia, serif;
   --ff-body:"Inter", system-ui, sans-serif;
@@ -32,6 +32,7 @@
 
   --ease-expo:cubic-bezier(.16,1,.3,1);
   --ease-soft:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.175,.885,.32,1.15);
 
   --pad-x:clamp(1.25rem,5vw,6rem);
   --sec-y:clamp(4.5rem,9vw,9rem);
@@ -54,13 +55,13 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 ::selection{background:var(--ice);color:var(--slate-ink)}
-::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:var(--slate-deep)}
-::-webkit-scrollbar-thumb{background:var(--ice-deep);border-radius:0}
+::-webkit-scrollbar-thumb{background:var(--ice-deep);border-radius:10px}
 ::-webkit-scrollbar-thumb:hover{background:var(--ice)}
 
 /* ============ TYPE ============ */
-h1,h2,h3,h4{font-family:var(--ff-display);font-weight:400;line-height:1.04;letter-spacing:-.02em}
+h1,h2,h3,h4{font-family:var(--ff-display);font-weight:400;line-height:1.06;letter-spacing:-.02em}
 .eyebrow{
   font-family:var(--ff-mono);font-size:.72rem;text-transform:uppercase;
   letter-spacing:.28em;color:var(--ice-deep);display:inline-flex;align-items:center;gap:.6rem;
@@ -70,46 +71,57 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:400;line-height:1.04;lette
 /* ============ LOADER ============ */
 #loader{
   position:fixed;inset:0;z-index:9999;background:var(--slate-ink);
-  display:grid;place-items:center;transition:opacity .8s var(--ease-soft),visibility .8s;
+  display:grid;place-items:center;transition:opacity .9s var(--ease-expo), visibility .9s, transform .9s var(--ease-expo);
 }
-#loader.done{opacity:0;visibility:hidden}
-.load-wrap{position:relative;width:min(80vw,340px);text-align:center}
-.load-tooth{width:64px;height:64px;margin:0 auto 1.4rem;opacity:0;animation:loadTooth .7s var(--ease-expo) .1s forwards}
-.load-tooth path{stroke:var(--ice);stroke-width:2.2;fill:none;stroke-dasharray:240;stroke-dashoffset:240;animation:draw 1.5s var(--ease-expo) .25s forwards}
-.load-name{font-family:var(--ff-display);color:#fff;font-size:1.7rem;letter-spacing:.02em;opacity:0;animation:fadeUp .7s var(--ease-expo) .55s forwards}
-.load-bar{margin:1.3rem auto 0;width:100%;height:1px;background:var(--line-light);position:relative;overflow:hidden}
-.load-bar::after{content:"";position:absolute;inset:0 100% 0 0;background:var(--ice);animation:bar 1.7s var(--ease-soft) .35s forwards}
-.load-meta{margin-top:.7rem;font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.25em;color:rgba(176,237,255,.55);text-transform:uppercase;opacity:0;animation:fadeUp .6s ease .8s forwards}
-@keyframes loadTooth{to{opacity:1}}
-@keyframes draw{to{stroke-dashoffset:0}}
+#loader.done{opacity:0;visibility:hidden;transform:scale(1.04)}
+.load-wrap{position:relative;width:min(80vw,340px);text-align:center; display:flex; flex-direction:column; align-items:center;}
+.load-logo{
+  width:160px; height:auto; margin-bottom:2rem; border-radius:6px; opacity:0;
+  animation: logoIn 1.2s var(--ease-expo) .1s forwards;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+.load-bar{margin:0 auto;width:100%;height:2px;background:var(--line-light);position:relative;overflow:hidden; border-radius:2px; opacity:0; animation: fadeUp .6s ease .4s forwards;}
+.load-bar::after{content:"";position:absolute;inset:0 100% 0 0;background:linear-gradient(90deg, var(--ice-deep), var(--ice));animation:bar 1.6s var(--ease-soft) .5s forwards; box-shadow: 0 0 10px var(--ice);}
+.load-meta{margin-top:.9rem;font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.25em;color:rgba(176,237,255,.6);text-transform:uppercase;opacity:0;animation:fadeUp .6s ease .7s forwards;}
+
+@keyframes logoIn{
+  0% { opacity:0; transform: scale(0.85) translateY(20px); filter: blur(5px); }
+  100% { opacity:1; transform: scale(1) translateY(0); filter: blur(0); }
+}
 @keyframes bar{to{inset:0 0 0 0}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
 /* ============ NAV ============ */
-header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .45s var(--ease-soft),box-shadow .45s,padding .45s}
+header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .5s var(--ease-soft),box-shadow .5s,padding .5s, backdrop-filter .5s}
 .nav{
-  max-width:var(--maxw);margin:0 auto;padding:1.5rem var(--pad-x);
-  display:flex;align-items:center;justify-content:space-between;transition:padding .45s;
+  max-width:var(--maxw);margin:0 auto;padding:1.6rem var(--pad-x);
+  display:flex;align-items:center;justify-content:space-between;transition:padding .5s;
 }
-header.scrolled{background:rgba(244,248,250,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
-header.scrolled .nav{padding-top:.95rem;padding-bottom:.95rem}
-.brand{display:flex;align-items:center;gap:.75rem;color:#fff;transition:color .45s}
+header.scrolled{background:rgba(244,248,250,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 4px 30px rgba(0,0,0,.04); border-bottom:1px solid rgba(255,255,255,0.4);}
+header.scrolled .nav{padding-top:1rem;padding-bottom:1rem}
+.brand{display:flex;align-items:center;gap:.75rem;color:#fff;transition:color .5s, transform .3s var(--ease-spring)}
+.brand:hover{transform:scale(1.02)}
 header.scrolled .brand{color:var(--slate-ink)}
 .brand-mark{width:34px;height:34px;flex:none}
 .brand-mark path{stroke:var(--ice-deep);stroke-width:2.4;fill:none}
 .brand-txt{font-family:var(--ff-display);font-size:1.18rem;letter-spacing:.04em;line-height:1}
 .brand-txt small{display:block;font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.22em;opacity:.7;margin-top:3px}
-.nav-links{display:flex;align-items:center;gap:2.1rem}
-.nav-links a{font-size:.86rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .3s;position:relative}
+.nav-links{display:flex;align-items:center;gap:2.2rem}
+.nav-links a{font-size:.86rem;font-weight:500;color:rgba(255,255,255,.9);transition:color .3s;position:relative}
 header.scrolled .nav-links a{color:var(--slate)}
-.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--ice-deep);transition:width .35s var(--ease-expo)}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1.5px;background:var(--ice-deep);transition:width .4s var(--ease-expo)}
 .nav-links a:not(.nav-cta):hover::after{width:100%}
+.nav-links a:not(.nav-cta):hover{color:#fff}
+header.scrolled .nav-links a:not(.nav-cta):hover{color:var(--slate-ink)}
+
 .nav-cta{
-  border:1px solid var(--ice-deep);color:var(--ice)!important;padding:.6rem 1.3rem;border-radius:40px;
-  font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.08em;transition:.35s var(--ease-soft);
+  background:rgba(255,255,255,.05); border:1px solid rgba(176,237,255,.3); color:#fff!important; padding:.65rem 1.4rem; border-radius:40px;
+  font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.08em;transition:all .4s var(--ease-expo);
+  backdrop-filter:blur(10px);
 }
-header.scrolled .nav-cta{color:var(--slate-ink)!important;border-color:var(--slate-ink)}
-.nav-cta:hover{background:var(--ice-deep);color:var(--slate-ink)!important;border-color:var(--ice-deep)}
+header.scrolled .nav-cta{background:transparent; color:var(--slate-ink)!important; border-color:var(--slate-ink)}
+.nav-cta:hover{background:var(--ice); color:var(--slate-ink)!important; border-color:var(--ice); box-shadow:0 8px 20px rgba(176,237,255,.3); transform:translateY(-2px)}
+
 .burger{display:none;width:30px;height:18px;position:relative;z-index:1001}
 .burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;transition:.4s var(--ease-expo)}
 header.scrolled .burger span{background:var(--slate-ink)}
@@ -122,7 +134,7 @@ body.menu-open .burger span:nth-child(3){top:8px;transform:rotate(-45deg)}
 #mobileMenu{
   position:fixed;inset:0;z-index:1000;background:var(--slate-ink);
   display:flex;flex-direction:column;justify-content:center;padding:var(--pad-x);
-  clip-path:circle(0% at calc(100% - 40px) 40px);transition:clip-path .7s var(--ease-expo);
+  clip-path:circle(0% at calc(100% - 40px) 40px);transition:clip-path .8s var(--ease-expo);
 }
 body.menu-open #mobileMenu{clip-path:circle(150% at calc(100% - 40px) 40px)}
 #mobileMenu a{font-family:var(--ff-display);font-size:clamp(1.8rem,7vw,2.6rem);color:#fff;padding:.45rem 0;opacity:0;transform:translateX(-20px);transition:.5s var(--ease-expo)}
@@ -139,258 +151,273 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .hero-bg{
   position:fixed;inset:0;z-index:-2;
   background:url("https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-28.jpg") center/cover no-repeat;
+  transform:scale(1.05); animation: slowPan 25s ease-in-out infinite alternate;
 }
+@keyframes slowPan { 0% { transform: scale(1.02); } 100% { transform: scale(1.08); } }
 .hero-scrim{
   position:fixed;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(37,43,51,.78) 0%,rgba(37,43,51,.55) 38%,rgba(37,43,51,.82) 100%),
-             linear-gradient(90deg,rgba(37,43,51,.7),rgba(37,43,51,.2));
+  background:linear-gradient(180deg,rgba(26,30,36,.85) 0%,rgba(26,30,36,.5) 40%,rgba(26,30,36,.95) 100%),
+             linear-gradient(90deg,rgba(26,30,36,.8),rgba(26,30,36,.1));
 }
 /* scanning beam over hero */
-.scan-beam{position:fixed;left:0;right:0;height:140px;z-index:-1;pointer-events:none;
-  background:linear-gradient(180deg,transparent,rgba(176,237,255,.13) 45%,rgba(176,237,255,.28) 50%,rgba(176,237,255,.13) 55%,transparent);
-  animation:scan 7s var(--ease-soft) infinite;mix-blend-mode:screen}
-@keyframes scan{0%{top:-140px}100%{top:100vh}}
+.scan-beam{position:fixed;left:0;right:0;height:160px;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(176,237,255,.08) 45%,rgba(176,237,255,.25) 50%,rgba(176,237,255,.08) 55%,transparent);
+  animation:scan 8s var(--ease-soft) infinite;mix-blend-mode:screen}
+@keyframes scan{0%{top:-160px}100%{top:100vh}}
 .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 var(--pad-x) clamp(3.5rem,7vw,6rem)}
 .hero-tag{margin-bottom:1.6rem;color:var(--ice)}
 .hero-tag.in{animation:fadeUp .9s var(--ease-expo) .1s both}
 .hero h1{color:#fff;font-size:clamp(2.6rem,7.5vw,6rem);font-weight:300;max-width:14ch}
-.hero h1 .em{font-style:italic;color:var(--ice)}
+.hero h1 .em{font-style:italic;color:var(--ice); text-shadow:0 0 30px rgba(176,237,255,0.3);}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:block;transform:translateY(110%);animation:rise 1s var(--ease-expo) both}
 .hero h1 .line:nth-child(1) span{animation-delay:.25s}
 .hero h1 .line:nth-child(2) span{animation-delay:.4s}
 .hero h1 .line:nth-child(3) span{animation-delay:.55s}
 @keyframes rise{to{transform:none}}
-.hero-sub{margin-top:1.8rem;max-width:46ch;color:rgba(255,255,255,.82);font-size:clamp(1rem,1.6vw,1.18rem);font-weight:300;opacity:0;animation:fadeUp 1s var(--ease-expo) .8s forwards}
-.hero-actions{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;opacity:0;animation:fadeUp 1s var(--ease-expo) 1s forwards}
+.hero-sub{margin-top:1.8rem;max-width:48ch;color:rgba(255,255,255,.85);font-size:clamp(1rem,1.6vw,1.18rem);font-weight:300;opacity:0;animation:fadeUp 1s var(--ease-expo) .8s forwards}
+.hero-actions{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;opacity:0;animation:fadeUp 1s var(--ease-expo) 1s forwards}
 .btn{
-  display:inline-flex;align-items:center;gap:.7rem;padding:1rem 1.9rem;border-radius:46px;
-  font-weight:600;font-size:.92rem;transition:.4s var(--ease-expo);
+  display:inline-flex;align-items:center;gap:.7rem;padding:1.1rem 2.2rem;border-radius:46px;
+  font-weight:600;font-size:.95rem;transition:all .5s var(--ease-spring);
 }
-.btn-primary{background:var(--ice);color:var(--slate-ink)}
-.btn-primary:hover{background:#fff;transform:translateY(-3px);box-shadow:0 16px 40px -12px rgba(176,237,255,.5)}
-.btn-ghost{color:#fff;border:1px solid rgba(255,255,255,.4)}
-.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
-.btn svg{width:16px;height:16px}
+.btn-primary{background:linear-gradient(135deg, var(--ice-soft), var(--ice));color:var(--slate-ink);box-shadow:0 10px 30px -8px rgba(176,237,255,.5);}
+.btn-primary:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 40px -12px rgba(176,237,255,.8); background:linear-gradient(135deg, #fff, var(--ice));}
+.btn-ghost{color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(5px);}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-3px);}
+.btn svg{width:18px;height:18px; transition:transform .4s var(--ease-spring);}
+.btn:hover svg{transform:translateX(3px);}
 .hero-readout{
   position:absolute;right:var(--pad-x);bottom:clamp(3.5rem,7vw,6rem);z-index:2;
-  font-family:var(--ff-mono);font-size:.7rem;color:rgba(176,237,255,.75);text-align:right;
-  letter-spacing:.1em;line-height:2;opacity:0;animation:fadeUp 1s ease 1.3s forwards;
+  font-family:var(--ff-mono);font-size:.7rem;color:rgba(176,237,255,.8);text-align:right;
+  letter-spacing:.12em;line-height:2.2;opacity:0;animation:fadeUp 1s ease 1.3s forwards;
 }
 .hero-readout b{color:#fff;font-weight:700}
 .scroll-cue{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.3em;color:rgba(255,255,255,.6);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.6rem;opacity:0;animation:fadeUp 1s ease 1.5s forwards}
-.scroll-cue i{width:1px;height:34px;background:linear-gradient(var(--ice),transparent);position:relative;overflow:hidden}
-.scroll-cue i::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--ice);animation:cue 1.8s ease infinite}
-@keyframes cue{0%{top:-50%}100%{top:120%}}
+.scroll-cue i{width:1px;height:40px;background:linear-gradient(var(--ice),transparent);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--ice);animation:cue 2s ease-in-out infinite; box-shadow:0 0 10px var(--ice);}
+@keyframes cue{0%{top:-50%; opacity:0} 50%{opacity:1} 100%{top:120%; opacity:0}}
 
 /* ============ SECTIONS WRAP ============ */
-.sheet{position:relative;z-index:1;background:var(--paper)}
+.sheet{position:relative;z-index:1;background:var(--paper); box-shadow: 0 -20px 50px rgba(0,0,0,0.2);}
 .section{max-width:var(--maxw);margin:0 auto;padding:var(--sec-y) var(--pad-x)}
 
 /* ============ MARQUEE ============ */
-.marquee{background:var(--slate-ink);color:var(--ice);overflow:hidden;border-block:1px solid var(--slate-deep);padding:1.1rem 0;position:relative;z-index:1}
-.marquee-track{display:flex;white-space:nowrap;width:max-content;animation:scrollx 32s linear infinite}
+.marquee{background:var(--slate-ink);color:var(--ice);overflow:hidden;border-block:1px solid var(--slate-deep);padding:1.3rem 0;position:relative;z-index:1; box-shadow:inset 0 0 40px rgba(0,0,0,0.5);}
+.marquee-track{display:flex;white-space:nowrap;width:max-content;animation:scrollx 36s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track span{font-family:var(--ff-display);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.7rem);padding:0 1.6rem;display:inline-flex;align-items:center;gap:1.6rem}
-.marquee-track span::after{content:"";width:7px;height:7px;background:var(--ice-deep);border-radius:50%;display:inline-block}
+.marquee-track span{font-family:var(--ff-display);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.7rem);padding:0 1.8rem;display:inline-flex;align-items:center;gap:1.8rem}
+.marquee-track span::after{content:"";width:6px;height:6px;background:var(--ice-deep);border-radius:50%;display:inline-block; box-shadow:0 0 8px var(--ice-deep);}
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
 /* ============ ABOUT / DUAL DOCTORS ============ */
-.intro-head{display:grid;grid-template-columns:1fr;gap:1.4rem;max-width:62ch}
-.intro-head h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:400}
+.intro-head{display:grid;grid-template-columns:1fr;gap:1.4rem;max-width:68ch}
+.intro-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:400}
 .intro-head h2 em{font-style:italic;color:var(--ice-deep)}
-.intro-head p{color:var(--slate);font-size:1.06rem}
-.docs{margin-top:clamp(3rem,6vw,5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.5rem)}
+.intro-head p{color:var(--slate);font-size:1.1rem;line-height:1.7}
+.docs{margin-top:clamp(3.5rem,6vw,5.5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,3rem)}
 .doc{
-  position:relative;background:var(--paper-pure);border:1px solid var(--line);border-radius:4px;overflow:hidden;
-  transition:transform .5s var(--ease-expo),box-shadow .5s;
+  position:relative;background:var(--paper-pure);border:1px solid rgba(0,0,0,0.04);border-radius:8px;overflow:hidden;
+  transition:all .6s var(--ease-spring); box-shadow:0 12px 30px -10px rgba(0,0,0,0.06);
 }
-.doc:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(37,43,51,.35)}
-.doc-img{position:relative;aspect-ratio:4/3.4;overflow:hidden;background:var(--slate-deep)}
-.doc-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .9s var(--ease-expo);filter:saturate(.92)}
-.doc:hover .doc-img img{transform:scale(1.05)}
+.doc:hover{transform:translateY(-10px);box-shadow:0 40px 60px -20px rgba(26,30,36,.15);border-color:rgba(127,212,240,.3);}
+.doc-img{position:relative;aspect-ratio:4/3.5;overflow:hidden;background:var(--slate-deep)}
+.doc-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 1.2s var(--ease-expo), filter 1s;filter:saturate(.9) contrast(1.05);}
+.doc:hover .doc-img img{transform:scale(1.06); filter:saturate(1.05) contrast(1.02);}
 /* scan-grid overlay on portrait */
 .doc-img::after{content:"";position:absolute;inset:0;background:
-  repeating-linear-gradient(0deg,transparent 0 22px,rgba(176,237,255,.06) 22px 23px),
-  linear-gradient(180deg,transparent 55%,rgba(37,43,51,.55));pointer-events:none}
-.doc-tag{position:absolute;top:1rem;left:1rem;z-index:2;font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate-ink);background:var(--ice);padding:.4rem .7rem;border-radius:2px}
-.doc-body{padding:clamp(1.4rem,2.5vw,2rem)}
-.doc-body h3{font-size:clamp(1.5rem,2.6vw,2rem)}
-.doc-role{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.1em;color:var(--ice-deep);margin-top:.5rem;text-transform:uppercase}
-.doc-body p{margin-top:1.1rem;color:var(--slate);font-size:.96rem}
-.doc-creds{margin-top:1.3rem;display:flex;flex-direction:column;gap:.6rem;border-top:1px solid var(--line);padding-top:1.2rem}
-.doc-creds li{display:flex;gap:.7rem;font-size:.86rem;color:var(--slate-ink);list-style:none}
-.doc-creds .tick{flex:none;width:16px;height:16px;margin-top:3px;color:var(--ice-deep)}
+  repeating-linear-gradient(0deg,transparent 0 22px,rgba(176,237,255,.05) 22px 23px),
+  linear-gradient(180deg,transparent 60%,rgba(26,30,36,.6));pointer-events:none; transition:opacity .6s;}
+.doc:hover .doc-img::after{opacity:0.7;}
+.doc-tag{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate-ink);background:rgba(176,237,255,.95);padding:.5rem .8rem;border-radius:4px; box-shadow:0 4px 15px rgba(0,0,0,0.1); backdrop-filter:blur(4px);}
+.doc-body{padding:clamp(1.6rem,2.5vw,2.4rem)}
+.doc-body h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.doc-role{font-family:var(--ff-mono);font-size:.75rem;letter-spacing:.12em;color:var(--ice-deep);margin-top:.6rem;text-transform:uppercase}
+.doc-body p{margin-top:1.2rem;color:var(--slate);font-size:.98rem; line-height:1.7}
+.doc-creds{margin-top:1.5rem;display:flex;flex-direction:column;gap:.7rem;border-top:1px solid var(--line);padding-top:1.4rem}
+.doc-creds li{display:flex;gap:.8rem;font-size:.9rem;color:var(--slate-ink);list-style:none; align-items:center;}
+.doc-creds .tick{flex:none;width:18px;height:18px;color:var(--ice-deep)}
 .pullquote{
-  margin:clamp(3.5rem,7vw,6rem) auto 0;max-width:30ch;text-align:center;
-  font-family:var(--ff-display);font-style:italic;font-size:clamp(1.6rem,4vw,2.7rem);font-weight:300;line-height:1.18;color:var(--slate-ink);
+  margin:clamp(4rem,7vw,7rem) auto 0;max-width:32ch;text-align:center;
+  font-family:var(--ff-display);font-style:italic;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;line-height:1.2;color:var(--slate-ink);
 }
 .pullquote span{color:var(--ice-deep)}
 
 /* ============ SERVICES ============ */
-.services{background:var(--slate-ink);color:#fff;position:relative;z-index:1}
+.services{background:var(--slate-ink);color:#fff;position:relative;z-index:1; box-shadow: inset 0 20px 60px rgba(0,0,0,0.5);}
 .services .eyebrow{color:var(--ice)}
-.services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(2.5rem,5vw,4rem)}
-.services-head h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:400;color:#fff;max-width:18ch}
+.services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(3rem,5vw,5rem)}
+.services-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:400;color:#fff;max-width:20ch}
 .services-head h2 em{font-style:italic;color:var(--ice)}
-.acc{border-top:1px solid var(--line-light)}
-.acc-item{border-bottom:1px solid var(--line-light)}
-.acc-head{width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;padding:clamp(1.4rem,3vw,2.1rem) 0;text-align:left;transition:padding-left .4s var(--ease-expo)}
-.acc-head:hover{padding-left:.6rem}
-.acc-no{font-family:var(--ff-mono);font-size:.78rem;color:var(--ice-deep);letter-spacing:.05em}
-.acc-title{font-family:var(--ff-display);font-size:clamp(1.3rem,3vw,2rem);font-weight:400;transition:color .3s}
+.acc{border-top:1px solid rgba(255,255,255,.08)}
+.acc-item{border-bottom:1px solid rgba(255,255,255,.08); transition:background .4s;}
+.acc-item:hover{background:rgba(255,255,255,.02);}
+.acc-head{width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.8rem;padding:clamp(1.6rem,3vw,2.4rem) 0;text-align:left;transition:padding-left .5s var(--ease-spring)}
+.acc-head:hover{padding-left:.8rem}
+.acc-no{font-family:var(--ff-mono);font-size:.85rem;color:var(--ice-deep);letter-spacing:.05em}
+.acc-title{font-family:var(--ff-display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:400;transition:color .3s}
 .acc-head:hover .acc-title,.acc-item.open .acc-title{color:var(--ice)}
-.acc-icon{width:34px;height:34px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;flex:none;transition:.4s var(--ease-expo)}
-.acc-item.open .acc-icon{background:var(--ice);border-color:var(--ice);transform:rotate(135deg)}
+.acc-icon{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;flex:none;transition:all .5s var(--ease-spring)}
+.acc-item.open .acc-icon{background:var(--ice);border-color:var(--ice);transform:rotate(135deg) scale(1.1); box-shadow:0 0 15px rgba(176,237,255,.4);}
 .acc-icon::before,.acc-icon::after{content:"";position:absolute;background:#fff;transition:.4s}
-.acc-icon::before{width:13px;height:1.5px}.acc-icon::after{width:1.5px;height:13px}
+.acc-icon::before{width:14px;height:1.5px}.acc-icon::after{width:1.5px;height:14px}
 .acc-item.open .acc-icon::before,.acc-item.open .acc-icon::after{background:var(--slate-ink)}
-.acc-panel{max-height:0;overflow:hidden;transition:max-height .55s var(--ease-expo)}
-.acc-inner{padding:0 0 clamp(1.6rem,3vw,2.4rem) calc(.78rem + 1.5rem + 2ch);max-width:65ch}
-.acc-inner p{color:rgba(255,255,255,.72);font-size:1rem}
-.acc-chips{margin-top:1.3rem;display:flex;flex-wrap:wrap;gap:.55rem}
-.acc-chips span{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.04em;padding:.4rem .75rem;border:1px solid var(--line-light);border-radius:40px;color:var(--ice-soft)}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .6s var(--ease-expo)}
+.acc-inner{padding:0 0 clamp(1.8rem,3vw,2.6rem) calc(.85rem + 1.8rem + 2ch);max-width:68ch}
+.acc-inner p{color:rgba(255,255,255,.8);font-size:1.05rem; line-height:1.7;}
+.acc-chips{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.6rem}
+.acc-chips span{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.05em;padding:.45rem .85rem;border:1px solid rgba(176,237,255,.2);border-radius:40px;color:var(--ice-soft); transition:all .3s;}
+.acc-chips span:hover{background:rgba(176,237,255,.1); border-color:var(--ice-deep);}
 @media(max-width:600px){.acc-inner{padding-left:0}}
 
 /* ============ PROCESS ============ */
-.proc-grid{margin-top:clamp(2.5rem,5vw,4rem);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
-.proc-step{background:var(--paper);padding:clamp(1.6rem,3vw,2.4rem) clamp(1.2rem,2.5vw,1.8rem);position:relative;transition:background .4s}
-.proc-step:hover{background:var(--paper-pure)}
-.proc-step::before{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--ice-deep);transition:width .6s var(--ease-expo)}
+.proc-grid{margin-top:clamp(3rem,5vw,4.5rem);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.proc-step{background:var(--paper);padding:clamp(1.8rem,3vw,2.8rem) clamp(1.4rem,2.5vw,2rem);position:relative;transition:all .5s var(--ease-spring); box-shadow: inset 0 0 0 transparent;}
+.proc-step:hover{background:var(--paper-pure); z-index:2; transform:scale(1.02); box-shadow: 0 15px 40px -10px rgba(0,0,0,0.08); border-radius:4px;}
+.proc-step::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--ice-deep);transition:width .6s var(--ease-expo)}
 .proc-step:hover::before{width:100%}
-.proc-no{font-family:var(--ff-mono);font-size:.78rem;color:var(--ice-deep);letter-spacing:.1em}
-.proc-step h3{margin-top:1.4rem;font-size:clamp(1.2rem,2.3vw,1.45rem);font-weight:500}
-.proc-step p{margin-top:.7rem;color:var(--slate);font-size:.9rem}
+.proc-no{font-family:var(--ff-mono);font-size:.8rem;color:var(--ice-deep);letter-spacing:.12em}
+.proc-step h3{margin-top:1.6rem;font-size:clamp(1.3rem,2.3vw,1.55rem);font-weight:500}
+.proc-step p{margin-top:.8rem;color:var(--slate);font-size:.95rem; line-height:1.6}
 
 /* ============ TECH FEATURE (iTero) ============ */
 .tech{background:linear-gradient(160deg,var(--slate-deep),var(--slate-ink));color:#fff;position:relative;z-index:1;overflow:hidden}
-.tech::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(176,237,255,.16),transparent 70%);top:-180px;right:-120px;animation:float 9s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(30px)}}
-.tech-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5rem);align-items:center;position:relative}
+.tech::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(176,237,255,.12),transparent 70%);top:-200px;right:-150px;animation:float 12s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(40px) scale(1.05)}}
+.tech-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(3rem,6vw,6rem);align-items:center;position:relative}
 .tech .eyebrow{color:var(--ice)}
-.tech h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:300;margin-top:1.4rem}
+.tech h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:300;margin-top:1.6rem; line-height:1.1;}
 .tech h2 em{font-style:italic;color:var(--ice)}
-.tech-lead{margin-top:1.5rem;color:rgba(255,255,255,.78);font-size:1.05rem;font-weight:300;max-width:50ch}
-.tech-list{margin-top:2rem;display:flex;flex-direction:column;gap:1.5rem}
-.tech-list li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:1.1rem}
-.tech-list .ic{width:42px;height:42px;border-radius:50%;border:1px solid var(--ice-deep);display:grid;place-items:center;flex:none;color:var(--ice)}
-.tech-list .ic svg{width:20px;height:20px}
-.tech-list h4{font-family:var(--ff-body);font-size:1.02rem;font-weight:600}
-.tech-list p{color:rgba(255,255,255,.7);font-size:.92rem;margin-top:.25rem}
-.tech-visual{position:relative;aspect-ratio:1/1.05;border-radius:6px;overflow:hidden;border:1px solid var(--line-light)}
-.tech-visual img{width:100%;height:100%;object-fit:cover}
+.tech-lead{margin-top:1.6rem;color:rgba(255,255,255,.85);font-size:1.1rem;font-weight:300;max-width:52ch; line-height:1.7;}
+.tech-list{margin-top:2.4rem;display:flex;flex-direction:column;gap:1.8rem}
+.tech-list li{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:1.2rem; align-items:start;}
+.tech-list .ic{width:46px;height:46px;border-radius:50%;border:1px solid rgba(176,237,255,.4);display:grid;place-items:center;flex:none;color:var(--ice); background:rgba(255,255,255,.03); transition:all .4s var(--ease-spring);}
+.tech-list li:hover .ic{background:var(--ice); color:var(--slate-ink); transform:scale(1.1); box-shadow:0 0 20px rgba(176,237,255,.3);}
+.tech-list .ic svg{width:22px;height:22px}
+.tech-list h4{font-family:var(--ff-body);font-size:1.1rem;font-weight:600; color:#fff;}
+.tech-list p{color:rgba(255,255,255,.75);font-size:.95rem;margin-top:.4rem; line-height:1.6;}
+.tech-visual{position:relative;aspect-ratio:1/1.1;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1); box-shadow:0 20px 50px rgba(0,0,0,0.6);}
+.tech-visual img{width:100%;height:100%;object-fit:cover; filter:contrast(1.08) saturate(0.95);}
 .tech-visual .hud{position:absolute;inset:0;pointer-events:none}
-.tech-visual .hud span{position:absolute;font-family:var(--ff-mono);font-size:.62rem;color:var(--ice);letter-spacing:.1em;background:rgba(37,43,51,.6);padding:.3rem .55rem;border:1px solid rgba(176,237,255,.3)}
-.hud-tl{top:14px;left:14px}.hud-br{bottom:14px;right:14px}
-.tech-visual::after{content:"";position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--ice),transparent);animation:scanh 4s var(--ease-soft) infinite;box-shadow:0 0 20px var(--ice)}
+.tech-visual .hud span{position:absolute;font-family:var(--ff-mono);font-size:.65rem;color:var(--ice);letter-spacing:.12em;background:rgba(26,30,36,.7);padding:.4rem .7rem;border:1px solid rgba(176,237,255,.3); backdrop-filter:blur(4px); border-radius:2px;}
+.hud-tl{top:16px;left:16px}.hud-br{bottom:16px;right:16px}
+.tech-visual::after{content:"";position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--ice),transparent);animation:scanh 4s var(--ease-soft) infinite;box-shadow:0 0 30px var(--ice), 0 0 10px #fff;}
 @keyframes scanh{0%{top:0}100%{top:100%}}
-.corner{position:absolute;width:22px;height:22px;border:1.5px solid var(--ice);z-index:2}
-.corner.tl{top:10px;left:10px;border-right:none;border-bottom:none}
-.corner.tr{top:10px;right:10px;border-left:none;border-bottom:none}
-.corner.bl{bottom:10px;left:10px;border-right:none;border-top:none}
-.corner.br{bottom:10px;right:10px;border-left:none;border-top:none}
+.corner{position:absolute;width:26px;height:26px;border:2px solid var(--ice);z-index:2; opacity:0.8;}
+.corner.tl{top:12px;left:12px;border-right:none;border-bottom:none}
+.corner.tr{top:12px;right:12px;border-left:none;border-bottom:none}
+.corner.bl{bottom:12px;left:12px;border-right:none;border-top:none}
+.corner.br{bottom:12px;right:12px;border-left:none;border-top:none}
 
 /* ============ VALUES ============ */
 .values .eyebrow{color:var(--ice-deep)}
-.values h2{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:400;margin-top:1.2rem;max-width:16ch}
+.values h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:400;margin-top:1.4rem;max-width:20ch}
 .values h2 em{font-style:italic;color:var(--ice-deep)}
-.val-grid{margin-top:clamp(2.5rem,5vw,4rem);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
-.val-card{background:var(--paper-pure);border:1px solid var(--line);border-radius:4px;padding:clamp(1.6rem,3vw,2.2rem);position:relative;overflow:hidden;transition:.5s var(--ease-expo)}
-.val-card::after{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--ice-deep);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-expo)}
-.val-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(37,43,51,.3)}
+.val-grid{margin-top:clamp(3rem,5vw,5rem);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2vw,2rem)}
+.val-card{background:var(--paper-pure);border:1px solid rgba(0,0,0,0.03);border-radius:6px;padding:clamp(2rem,3vw,2.8rem);position:relative;overflow:hidden;transition:all .6s var(--ease-spring); box-shadow:0 8px 25px -10px rgba(0,0,0,0.04);}
+.val-card::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--ice-deep);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease-expo)}
+.val-card:hover{transform:translateY(-12px);box-shadow:0 35px 60px -25px rgba(26,30,36,.2); border-color:rgba(127,212,240,.4);}
 .val-card:hover::after{transform:scaleX(1)}
-.val-ic{width:48px;height:48px;color:var(--ice-deep);margin-bottom:1.3rem}
-.val-card h3{font-size:1.3rem;font-weight:500}
-.val-card p{margin-top:.8rem;color:var(--slate);font-size:.94rem}
+.val-ic{width:52px;height:52px;color:var(--ice-deep);margin-bottom:1.5rem; transition:transform .5s var(--ease-spring);}
+.val-card:hover .val-ic{transform:scale(1.1) translateY(-5px); color:var(--slate-ink);}
+.val-card h3{font-size:1.4rem;font-weight:500; color:var(--slate-ink);}
+.val-card p{margin-top:1rem;color:var(--slate);font-size:.98rem; line-height:1.6;}
 
 /* ============ TESTIMONIALS ============ */
-.reviews{background:var(--slate);color:#fff;position:relative;z-index:1;overflow:hidden}
+.reviews{background:var(--slate);color:#fff;position:relative;z-index:1;overflow:hidden; box-shadow:inset 0 20px 50px rgba(0,0,0,0.3);}
 .reviews .eyebrow{color:var(--ice)}
 .rev-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
-.rev-head h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:400;color:#fff}
+.rev-head h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:400;color:#fff}
 .rev-head h2 em{font-style:italic;color:var(--ice)}
-.rev-score{font-family:var(--ff-mono);text-align:right;font-size:.74rem;letter-spacing:.12em;color:var(--ice-soft);line-height:1.9}
-.rev-score b{display:block;font-family:var(--ff-display);font-size:2.6rem;color:#fff;letter-spacing:0}
-.rev-viewport{margin-top:clamp(2.5rem,5vw,3.5rem);overflow:hidden}
-.rev-track{display:flex;transition:transform .7s var(--ease-expo)}
+.rev-score{font-family:var(--ff-mono);text-align:right;font-size:.78rem;letter-spacing:.12em;color:var(--ice-soft);line-height:1.9}
+.rev-score b{display:block;font-family:var(--ff-display);font-size:2.8rem;color:#fff;letter-spacing:0; text-shadow:0 4px 20px rgba(0,0,0,0.3);}
+.rev-viewport{margin-top:clamp(3rem,5vw,4.5rem);overflow:hidden; padding-bottom:1rem;}
+.rev-track{display:flex;transition:transform .8s var(--ease-spring)}
 .rev-card{flex:0 0 100%;padding-right:0}
-@media(min-width:760px){.rev-card{flex:0 0 50%;padding-right:1.5rem}}
-.rev-inner{background:var(--slate-deep);border:1px solid var(--line-light);border-radius:6px;padding:clamp(1.6rem,3vw,2.4rem);height:100%;position:relative}
-.rev-stars{color:var(--ice);letter-spacing:.18em;font-size:.85rem}
-.rev-q{margin-top:1.2rem;font-family:var(--ff-display);font-size:clamp(1.05rem,1.8vw,1.32rem);font-weight:300;line-height:1.45;color:#fff}
-.rev-name{margin-top:1.4rem;font-weight:600;font-size:.95rem}
-.rev-date{font-family:var(--ff-mono);font-size:.68rem;color:var(--ice-deep);letter-spacing:.06em;margin-top:.2rem}
-.rev-controls{margin-top:2rem;display:flex;align-items:center;gap:1rem}
-.rev-btn{width:46px;height:46px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;transition:.35s var(--ease-expo)}
-.rev-btn:hover{background:var(--ice);border-color:var(--ice);color:var(--slate-ink)}
-.rev-btn svg{width:18px;height:18px}
-.rev-dots{display:flex;gap:.5rem;margin-left:auto}
-.rev-dot{width:8px;height:8px;border-radius:50%;background:var(--line-light);transition:.35s;cursor:pointer}
-.rev-dot.active{background:var(--ice);width:26px;border-radius:5px}
-.rev-more{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.1em;color:var(--ice);display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem}
+@media(min-width:760px){.rev-card{flex:0 0 50%;padding-right:1.8rem}}
+.rev-inner{background:var(--slate-deep);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:clamp(2rem,3vw,3rem);height:100%;position:relative; transition:all .4s ease; box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+.rev-inner:hover{transform:translateY(-4px); border-color:rgba(176,237,255,.2); box-shadow:0 20px 40px rgba(0,0,0,0.3);}
+.rev-stars{color:var(--ice);letter-spacing:.2em;font-size:.9rem; text-shadow:0 0 10px rgba(176,237,255,.4);}
+.rev-q{margin-top:1.4rem;font-family:var(--ff-display);font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:300;line-height:1.5;color:#fff}
+.rev-name{margin-top:1.6rem;font-weight:600;font-size:1rem}
+.rev-date{font-family:var(--ff-mono);font-size:.7rem;color:var(--ice-deep);letter-spacing:.08em;margin-top:.3rem}
+.rev-controls{margin-top:2.5rem;display:flex;align-items:center;gap:1.2rem}
+.rev-btn{width:50px;height:50px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;transition:all .4s var(--ease-spring); background:rgba(255,255,255,.02);}
+.rev-btn:hover{background:var(--ice);border-color:var(--ice);color:var(--slate-ink); transform:scale(1.1); box-shadow:0 5px 20px rgba(176,237,255,.4);}
+.rev-btn svg{width:20px;height:20px}
+.rev-dots{display:flex;gap:.6rem;margin-left:auto}
+.rev-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);transition:all .4s var(--ease-spring);cursor:pointer}
+.rev-dot:hover{background:rgba(255,255,255,.5);}
+.rev-dot.active{background:var(--ice);width:30px;border-radius:5px; box-shadow:0 0 10px rgba(176,237,255,.5);}
+.rev-more{font-family:var(--ff-mono);font-size:.75rem;letter-spacing:.1em;color:var(--ice);display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem; transition:transform .3s ease;}
+.rev-more:hover{transform:translateX(5px); color:#fff;}
 
 /* ============ FAQ ============ */
-.faq-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:start}
-.faq-intro h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:400}
+.faq-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(3rem,5vw,5rem);align-items:start}
+.faq-intro h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:400}
 .faq-intro h2 em{font-style:italic;color:var(--ice-deep)}
-.faq-intro p{margin-top:1.2rem;color:var(--slate)}
-.faq-intro .faq-cta{margin-top:1.8rem;display:inline-flex;align-items:center;gap:.6rem;font-weight:600;color:var(--slate-ink);border-bottom:1px solid var(--ice-deep);padding-bottom:.3rem}
-.faq-list{border-top:1px solid var(--line)}
-.faq-q{border-bottom:1px solid var(--line)}
-.faq-q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;text-align:left;padding:1.3rem 0;font-family:var(--ff-display);font-size:clamp(1.05rem,2vw,1.3rem);font-weight:400;color:var(--slate-ink);transition:color .3s}
+.faq-intro p{margin-top:1.4rem;color:var(--slate); font-size:1.05rem; line-height:1.7;}
+.faq-intro .faq-cta{margin-top:2rem;display:inline-flex;align-items:center;gap:.8rem;font-weight:600;color:var(--slate-ink);border-bottom:2px solid var(--ice-deep);padding-bottom:.4rem; transition:all .3s;}
+.faq-intro .faq-cta:hover{color:var(--ice-deep); padding-right:10px;}
+.faq-list{border-top:1px solid rgba(0,0,0,0.08)}
+.faq-q{border-bottom:1px solid rgba(0,0,0,0.08)}
+.faq-q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;text-align:left;padding:1.5rem 0;font-family:var(--ff-display);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:400;color:var(--slate-ink);transition:color .3s}
 .faq-q button:hover{color:var(--ice-deep)}
-.faq-plus{position:relative;width:18px;height:18px;flex:none}
-.faq-plus::before,.faq-plus::after{content:"";position:absolute;background:var(--ice-deep);transition:.4s var(--ease-expo)}
-.faq-plus::before{top:8px;left:0;width:100%;height:1.8px}
-.faq-plus::after{left:8px;top:0;height:100%;width:1.8px}
+.faq-plus{position:relative;width:20px;height:20px;flex:none}
+.faq-plus::before,.faq-plus::after{content:"";position:absolute;background:var(--ice-deep);transition:all .5s var(--ease-spring)}
+.faq-plus::before{top:9px;left:0;width:100%;height:2px; border-radius:2px;}
+.faq-plus::after{left:9px;top:0;height:100%;width:2px; border-radius:2px;}
+.faq-q.open .faq-plus::before{transform:rotate(180deg); background:var(--slate-ink);}
 .faq-q.open .faq-plus::after{transform:rotate(90deg);opacity:0}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease-expo)}
-.faq-a p{padding:0 0 1.4rem;color:var(--slate);max-width:60ch}
+.faq-q.open button{color:var(--slate-ink); font-weight:500;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .6s var(--ease-expo)}
+.faq-a p{padding:0 0 1.6rem;color:var(--slate);max-width:62ch; font-size:1.02rem; line-height:1.6;}
 
 /* ============ CONTACT ============ */
-.contact{background:var(--slate-ink);color:#fff;position:relative;z-index:1}
+.contact{background:var(--slate-ink);color:#fff;position:relative;z-index:1; box-shadow: inset 0 20px 60px rgba(0,0,0,0.5);}
 .contact .eyebrow{color:var(--ice)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,5vw,4rem)}
-.contact h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;margin-top:1.3rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,5vw,6rem)}
+.contact h2{font-size:clamp(2.4rem,5vw,4rem);font-weight:300;margin-top:1.4rem; line-height:1.1;}
 .contact h2 em{font-style:italic;color:var(--ice)}
-.contact-lead{margin-top:1.4rem;color:rgba(255,255,255,.75);max-width:42ch}
-.contact-actions{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.9rem}
-.loc-cards{display:flex;flex-direction:column;gap:1.2rem}
-.loc{background:var(--slate-deep);border:1px solid var(--line-light);border-radius:6px;padding:1.6rem;transition:.4s var(--ease-expo)}
-.loc:hover{border-color:var(--ice-deep);transform:translateX(6px)}
-.loc-label{font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.18em;color:var(--ice-deep);text-transform:uppercase}
-.loc h3{font-size:1.3rem;font-weight:500;margin-top:.6rem}
-.loc-row{display:flex;gap:.7rem;align-items:center;margin-top:.8rem;font-size:.92rem;color:rgba(255,255,255,.82)}
-.loc-row svg{width:16px;height:16px;color:var(--ice);flex:none}
+.contact-lead{margin-top:1.6rem;color:rgba(255,255,255,.8);max-width:44ch; font-size:1.1rem;}
+.contact-actions{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:1rem}
+.loc-cards{display:flex;flex-direction:column;gap:1.4rem}
+.loc{background:var(--slate-deep);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem;transition:all .5s var(--ease-spring); box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+.loc:hover{border-color:rgba(176,237,255,.3);transform:translateX(8px); box-shadow:0 15px 40px rgba(0,0,0,0.4); background:rgba(255,255,255,.03);}
+.loc-label{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.2em;color:var(--ice-deep);text-transform:uppercase}
+.loc h3{font-size:1.4rem;font-weight:500;margin-top:.8rem; color:#fff;}
+.loc-row{display:flex;gap:.8rem;align-items:center;margin-top:.9rem;font-size:.95rem;color:rgba(255,255,255,.85)}
+.loc-row svg{width:18px;height:18px;color:var(--ice);flex:none}
+.loc-row a{transition:color .3s;}
 .loc-row a:hover{color:var(--ice)}
-.map-embed{margin-top:clamp(2.5rem,5vw,3.5rem);border-radius:6px;overflow:hidden;border:1px solid var(--line-light);filter:grayscale(.3) contrast(1.05)}
-.map-embed iframe{display:block;width:100%;height:340px;border:0}
-.contact-direct{margin-top:2rem;display:flex;flex-direction:column;gap:.9rem}
-.contact-direct a{display:inline-flex;align-items:center;gap:.8rem;font-size:1.05rem;transition:color .3s}
-.contact-direct a:hover{color:var(--ice)}
-.contact-direct svg{width:20px;height:20px;color:var(--ice-deep)}
-.socials{margin-top:1.8rem;display:flex;gap:.8rem}
-.socials a{width:44px;height:44px;border:1px solid var(--line-light);border-radius:50%;display:grid;place-items:center;transition:.4s}
-.socials a:hover{background:var(--ice);color:var(--slate-ink);border-color:var(--ice)}
-.socials svg{width:18px;height:18px}
+.map-embed{margin-top:clamp(3rem,5vw,4.5rem);border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);filter:grayscale(0.2) contrast(1.1); box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+.map-embed iframe{display:block;width:100%;height:380px;border:0}
+.contact-direct{margin-top:2.2rem;display:flex;flex-direction:column;gap:1rem}
+.contact-direct a{display:inline-flex;align-items:center;gap:1rem;font-size:1.1rem;transition:color .3s; color:rgba(255,255,255,.9);}
+.contact-direct a:hover{color:var(--ice); transform:translateX(4px);}
+.contact-direct svg{width:22px;height:22px;color:var(--ice-deep)}
+.socials{margin-top:2.2rem;display:flex;gap:1rem}
+.socials a{width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;transition:all .4s var(--ease-spring); background:rgba(255,255,255,.02);}
+.socials a:hover{background:var(--ice);color:var(--slate-ink);border-color:var(--ice); transform:scale(1.1) translateY(-3px); box-shadow:0 10px 20px rgba(176,237,255,.3);}
+.socials svg{width:20px;height:20px}
 
 /* ============ FOOTER ============ */
-footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;z-index:1;border-top:1px solid var(--slate-deep)}
-.foot{max-width:var(--maxw);margin:0 auto;padding:2.4rem var(--pad-x);display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;font-size:.82rem}
+footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.05)}
+.foot{max-width:var(--maxw);margin:0 auto;padding:2.6rem var(--pad-x);display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;font-size:.85rem}
 .foot a{color:var(--ice-deep);transition:color .3s}
 .foot a:hover{color:var(--ice)}
-.foot-credit{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.05em}
+.foot-credit{font-family:var(--ff-mono);font-size:.75rem;letter-spacing:.05em}
 
 /* ============ REVEAL ============ */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease-expo),transform .9s var(--ease-expo)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease-expo),transform 1s var(--ease-expo)}
 .reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+.reveal.d1{transition-delay:.15s}.reveal.d2{transition-delay:.3s}.reveal.d3{transition-delay:.45s}.reveal.d4{transition-delay:.6s}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
   .docs{grid-template-columns:1fr}
   .tech-grid{grid-template-columns:1fr}
-  .tech-visual{order:-1;max-width:440px;margin:0 auto}
+  .tech-visual{order:-1;max-width:480px;margin:0 auto}
   .proc-grid{grid-template-columns:repeat(2,1fr)}
   .val-grid{grid-template-columns:1fr 1fr}
   .faq-wrap{grid-template-columns:1fr}
@@ -416,17 +443,14 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
 </head>
 <body>
 
-<!-- ============ LOADER ============ -->
 <div id="loader">
   <div class="load-wrap">
-    <svg class="load-tooth" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-6 0-9 4-15 4S8 7 8 14c0 9 4 14 6 22 2 7 3 22 7 22 4 0 3-14 5-14h0c2 0 1 14 5 14 4 0 5-15 7-22 2-8 6-13 6-22 0-7-3-4-9-4S38 6 32 6Z"/></svg>
-    <div class="load-name">Vogiatzis Dentistry</div>
+    <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry Logo" class="load-logo">
     <div class="load-bar"></div>
     <div class="load-meta">Initializing digital scan</div>
   </div>
 </div>
 
-<!-- ============ NAV ============ -->
 <header id="header">
   <nav class="nav" aria-label="Κύρια πλοήγηση">
     <a href="#top" class="brand" aria-label="Vogiatzis Dentistry — Αρχική">
@@ -437,8 +461,8 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
       <a href="#doctors">Οι Ιατροί</a>
       <a href="#services">Υπηρεσίες</a>
       <a href="#tech">Τεχνολογία</a>
-      <a href="#reviews">Κριτικές</a>
-      <a href="#contact" class="nav-cta">Ραντεβού</a>
+      <a href="#reviews">Ασθενείς</a>
+      <a href="#contact" class="nav-cta">Κλείστε Ραντεβού</a>
     </div>
     <button class="burger" id="burger" aria-label="Άνοιγμα μενού" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
@@ -448,13 +472,12 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
   <a href="#doctors"><span class="mm-num">01</span>Οι Ιατροί</a>
   <a href="#services"><span class="mm-num">02</span>Υπηρεσίες</a>
   <a href="#tech"><span class="mm-num">03</span>Τεχνολογία</a>
-  <a href="#reviews"><span class="mm-num">04</span>Κριτικές</a>
+  <a href="#reviews"><span class="mm-num">04</span>Ασθενείς</a>
   <a href="#contact"><span class="mm-num">05</span>Ραντεβού</a>
 </div>
 
 <span id="top"></span>
 
-<!-- ============ HERO ============ -->
 <div class="hero-bg" aria-hidden="true"></div>
 <div class="hero-scrim" aria-hidden="true"></div>
 <div class="scan-beam" aria-hidden="true"></div>
@@ -462,18 +485,18 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
 <main>
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag eyebrow in">Νέα Κηφισιά &nbsp;/&nbsp; Πειραιάς</span>
+    <span class="hero-tag eyebrow in">Νέα Κηφισιά  /  Πειραιάς</span>
     <h1>
       <span class="line"><span>Το χαμόγελό σας,</span></span>
       <span class="line"><span>σχεδιασμένο με</span></span>
       <span class="line"><span><em>ψηφιακή ακρίβεια.</em></span></span>
     </h1>
-    <p class="hero-sub">Δύο ειδικοί, μία φιλοσοφία. Συνδυάζουμε την επιστημονική αρτιότητα με τον ενδοστοματικό σαρωτή iTero Element 5D — για αποτελέσματα που σχεδιάζονται πριν καν ξεκινήσει η θεραπεία.</p>
+    <p class="hero-sub">Δύο αδέρφια, μία κοινή φιλοσοφία. Συνδυάζουμε την εξειδικευμένη επιστημονική γνώση με την κορυφαία τεχνολογία του ενδοστοματικού σαρωτή iTero Element 5D, σχεδιάζοντας το τέλειο αποτέλεσμα πριν καν ξεκινήσει η θεραπεία σας.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Κλείστε ραντεβού
+      <a href="#contact" class="btn btn-primary">Προγραμματίστε Ραντεβού
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a href="#tech" class="btn btn-ghost">Η τεχνολογία iTero 5D</a>
+      <a href="#tech" class="btn btn-ghost">Γνωρίστε την iTero 5D</a>
     </div>
   </div>
   <div class="hero-readout" aria-hidden="true">
@@ -487,20 +510,18 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
 
 <div class="sheet">
 
-<!-- ============ MARQUEE ============ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Ψηφιακή Αποτύπωση iTero 5D</span><span>Εμφυτεύματα</span><span>Αόρατη Ορθοδοντική</span><span>Invisalign &amp; Spark</span><span>Σχεδιασμός Χαμόγελου</span><span>Αισθητική Οδοντιατρική</span><span>Πρόληψη</span>
-    <span>Ψηφιακή Αποτύπωση iTero 5D</span><span>Εμφυτεύματα</span><span>Αόρατη Ορθοδοντική</span><span>Invisalign &amp; Spark</span><span>Σχεδιασμός Χαμόγελου</span><span>Αισθητική Οδοντιατρική</span><span>Πρόληψη</span>
+    <span>Ψηφιακή Αποτύπωση iTero 5D</span><span>Εμφυτευματολογία</span><span>Αόρατη Ορθοδοντική</span><span>Invisalign & Spark</span><span>Smile Design</span><span>Αισθητική Οδοντιατρική</span><span>Πρόληψη</span>
+    <span>Ψηφιακή Αποτύπωση iTero 5D</span><span>Εμφυτευματολογία</span><span>Αόρατη Ορθοδοντική</span><span>Invisalign & Spark</span><span>Smile Design</span><span>Αισθητική Οδοντιατρική</span><span>Πρόληψη</span>
   </div>
 </div>
 
-<!-- ============ DOCTORS / ABOUT ============ -->
 <section class="section" id="doctors">
   <div class="intro-head reveal">
     <span class="eyebrow">Οι Ιατροί</span>
-    <h2>Δύο αδέρφια, δύο ειδικότητες — μία <em>κοινή φιλοσοφία</em> για το χαμόγελό σας.</h2>
-    <p>Στο οδοντιατρείο Βογιατζής, η αποκατάσταση και η ορθοδοντική συναντιούνται κάτω από την ίδια στέγη. Κάθε περιστατικό αντιμετωπίζεται με επιστημονική ακρίβεια, ψηφιακή τεχνολογία και ανθρώπινη φροντίδα.</p>
+    <h2>Δύο ιατροί, δύο εξειδικεύσεις. Ένα <em>κοινό όραμα</em> για το δικό σας χαμόγελο.</h2>
+    <p>Στα οδοντιατρεία Βογιατζή, η σύγχρονη προσθετική και η αισθητική ορθοδοντική συνυπάρχουν αρμονικά. Κάθε περιστατικό προσεγγίζεται με απόλυτη επιστημονική ακρίβεια, ψηφιακό σχεδιασμό και, πάνω απ' όλα, γνήσιο ανθρώπινο ενδιαφέρον.</p>
   </div>
 
   <div class="docs">
@@ -512,11 +533,11 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
       <div class="doc-body">
         <h3>Νίκος Βογιατζής</h3>
         <div class="doc-role">DDS · Εμφυτευματολόγος</div>
-        <p>Χειρουργός Οδοντίατρος, απόφοιτος της Οδοντιατρικής Σχολής ΕΚΠΑ, με μετεκπαίδευση στην Εμφυτευματολογία (Ινστιτούτο «Μέριμνα» υπό την αιγίδα του New York University). Από το 2025 διαθέτει πλήρως ψηφιοποιημένο ιατρείο με τον σαρωτή iTero Element 5D, για πρόληψη, αποκατάσταση και ολοκληρωμένη αισθητική φροντίδα σε ενήλικες και παιδιά έως 12 ετών.</p>
+        <p>Χειρουργός Οδοντίατρος, απόφοιτος της Οδοντιατρικής Σχολής του ΕΚΠΑ, με μετεκπαίδευση στην Εμφυτευματολογία (New York University). Διαθέτει πλήρως ψηφιοποιημένο ιατρείο, εξοπλισμένο με τον κορυφαίο σαρωτή iTero Element 5D, παρέχοντας ολοκληρωμένες υπηρεσίες αισθητικής αποκατάστασης και εμφυτευματολογίας με απόλυτη ακρίβεια και ασφάλεια.</p>
         <ul class="doc-creds">
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Πλήρης ψηφιακή ροή — iTero Element 5D</li>
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Μετεκπαίδευση Εμφυτευματολογίας (NYU)</li>
-          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Αισθητική &amp; λειτουργική αποκατάσταση</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Αισθητική & Λειτουργική Αποκατάσταση</li>
         </ul>
       </div>
     </article>
@@ -529,11 +550,11 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
       <div class="doc-body">
         <h3>Φώτης Βογιατζής</h3>
         <div class="doc-role">MSc · Ορθοδοντικός</div>
-        <p>Ειδικός Ορθοδοντικός με μεταπτυχιακό τίτλο (MSc) από το Πανεπιστήμιο του Τελ Αβίβ, όπου διακρίθηκε ως «καλύτερος φοιτητής». Πιστοποιημένος και ιδιαίτερα έμπειρος στους διαφανείς νάρθηκες (Invisalign, Spark) και στα γλωσσικά σιδεράκια (Incognito). Διατηρεί ιατρεία στη Νέα Κηφισιά και τον Πειραιά, με σταθερά και αισθητικά προηγμένα αποτελέσματα για παιδιά και ενήλικες.</p>
+        <p>Ειδικός Ορθοδοντικός, κάτοχος μεταπτυχιακού τίτλου (MSc) από το Πανεπιστήμιο του Tel Aviv, όπου και διακρίθηκε ως ο κορυφαίος της γενιάς του. Εξειδικεύεται στις πλέον σύγχρονες τεχνικές της αόρατης ορθοδοντικής (Invisalign, Spark) και της γλωσσικής τεχνικής (Incognito), προσφέροντας άριστα αισθητικά αποτελέσματα σε παιδιά και ενήλικες.</p>
         <ul class="doc-creds">
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>MSc Ορθοδοντικής — Tel Aviv University</li>
-          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Πιστοποιημένος Invisalign &amp; Spark</li>
-          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Γλωσσικά σιδεράκια Incognito</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Πιστοποίηση Invisalign & Spark</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Γλωσσική Τεχνική Incognito</li>
         </ul>
       </div>
     </article>
@@ -542,13 +563,12 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
   <p class="pullquote reveal">«Ένα όμορφο χαμόγελο είναι η ελευθερία να γελάτε <span>χωρίς δεύτερη σκέψη</span>.»</p>
 </section>
 
-<!-- ============ SERVICES ============ -->
 <section class="services" id="services">
   <div class="section">
     <div class="services-head">
       <div class="reveal">
         <span class="eyebrow">Υπηρεσίες</span>
-        <h2>Ολοκληρωμένη φροντίδα, από την <em>πρόληψη</em> έως την αποκατάσταση.</h2>
+        <h2>Ολοκληρωμένη φροντίδα, από την <em>πρόληψη</em> έως την τέλεια αποκατάσταση.</h2>
       </div>
     </div>
 
@@ -556,147 +576,143 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
       <div class="acc-item">
         <button class="acc-head" aria-expanded="false">
           <span class="acc-no">01</span>
-          <span class="acc-title">Ψηφιακή Οδοντιατρική &amp; Εμφυτεύματα</span>
+          <span class="acc-title">Ψηφιακή Οδοντιατρική & Εμφυτευματολογία</span>
           <span class="acc-icon" aria-hidden="true"></span>
         </button>
         <div class="acc-panel"><div class="acc-inner">
-          <p>Ο ψηφιακός σαρωτής iTero Element 5D επιτρέπει την τοποθέτηση εμφυτευμάτων με πρωτοφανή ακρίβεια. Η αποτύπωση είναι πλέον ψηφιακή, καθαρή και γρήγορη — χωρίς δυσάρεστα αποτυπωτικά υλικά. Σχεδιάζουμε το χαμόγελό σας πριν καν ξεκινήσει η επέμβαση, ώστε το τελικό αποτέλεσμα να είναι απόλυτα λειτουργικό και αισθητικά αψεγάδιαστο.</p>
-          <div class="acc-chips"><span>Εμφυτεύματα δοντιών</span><span>Ψηφιακή αποτύπωση iTero 5D</span><span>Προσθετική</span></div>
+          <p>Η τοποθέτηση εμφυτευμάτων περνάει στη νέα εποχή. Με τη βοήθεια του ψηφιακού σαρωτή iTero Element 5D, η διαδικασία αποτύπωσης γίνεται γρήγορα, χωρίς τα ενοχλητικά υλικά του παρελθόντος. Σχεδιάζουμε το χαμόγελό σας ψηφιακά και τρισδιάστατα, διασφαλίζοντας την τέλεια εφαρμογή και ένα άψογο, φυσικό αποτέλεσμα.</p>
+          <div class="acc-chips"><span>Εμφυτεύματα Δοντιών</span><span>Ψηφιακή Σάρωση iTero 5D</span><span>Προσθετική</span></div>
         </div></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-head" aria-expanded="false">
           <span class="acc-no">02</span>
-          <span class="acc-title">Αισθητική Οδοντιατρική &amp; Σχεδιασμός Χαμόγελου</span>
+          <span class="acc-title">Αισθητική Οδοντιατρική & Smile Design</span>
           <span class="acc-icon" aria-hidden="true"></span>
         </button>
         <div class="acc-panel"><div class="acc-inner">
-          <p>Για όσους αναζητούν την τέλεια αισθητική, προσφέρουμε λύσεις που μεταμορφώνουν το χαμόγελο με φυσικό τρόπο. Από τη λεύκανση δοντιών και τις λεπτές όψεις ρητίνης, μέχρι τις εξατομικευμένες στεφάνες, κάθε επέμβαση σχεδιάζεται για το μέγιστο αισθητικό αποτέλεσμα — διατηρώντας την υγεία των δοντιών σας.</p>
-          <div class="acc-chips"><span>Λεύκανση δοντιών</span><span>Όψεις ρητίνης</span><span>Στεφάνη / Θήκη</span></div>
+          <p>Σχεδιάζουμε χαμόγελα που ξεχωρίζουν για τη φυσικότητά τους. Από τη λεύκανση υψηλών προδιαγραφών και τις ελάχιστα παρεμβατικές όψεις ρητίνης ή πορσελάνης, μέχρι τις ολοκεραμικές στεφάνες, κάθε θεραπεία εξατομικεύεται πλήρως στις δικές σας ανάγκες, αναδεικνύοντας την καλύτερη εκδοχή του εαυτού σας.</p>
+          <div class="acc-chips"><span>Λεύκανση Δοντιών</span><span>Όψεις Ρητίνης / Πορσελάνης</span><span>Ολοκεραμικές Στεφάνες</span></div>
         </div></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-head" aria-expanded="false">
           <span class="acc-no">03</span>
-          <span class="acc-title">Ορθοδοντική (Clear Aligners) &amp; Στοματική Αποκατάσταση</span>
+          <span class="acc-title">Ορθοδοντική (Clear Aligners) & Προσθετική Αποκατάσταση</span>
           <span class="acc-icon" aria-hidden="true"></span>
         </button>
         <div class="acc-panel"><div class="acc-inner">
-          <p>Πέρα από τα παραδοσιακά ορθοδοντικά μέσα, προσφέρουμε σύγχρονες λύσεις με διαφανείς νάρθηκες (Clear Aligners) για διακριτική ευθυγράμμιση. Επιπλέον, αναλαμβάνουμε την αποκατάσταση της στοματικής λειτουργίας σε εκτεταμένη απώλεια δοντιών με μερικές ή ολικές οδοντοστοιχίες, εξασφαλίζοντας σταθερότητα και άνεση.</p>
-          <div class="acc-chips"><span>Ορθοδοντική παιδιών &amp; ενηλίκων</span><span>Clear Aligners</span><span>Οδοντοστοιχίες</span></div>
+          <p>Σύγχρονες, διακριτικές λύσεις για ένα άρτιο και υγιές χαμόγελο. Πέρα από την καινοτομία των διαφανών ναρθήκων (Clear Aligners) για αρμονική ευθυγράμμιση, εξειδικευόμαστε στην πλήρη αποκατάσταση της στοματικής λειτουργίας σε περιπτώσεις απώλειας δοντιών, εξασφαλίζοντας σταθερότητα και αυτοπεποίθηση στην καθημερινότητά σας.</p>
+          <div class="acc-chips"><span>Ορθοδοντική Παιδιών & Ενηλίκων</span><span>Clear Aligners</span><span>Οδοντοστοιχίες</span></div>
         </div></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-head" aria-expanded="false">
           <span class="acc-no">04</span>
-          <span class="acc-title">Αόρατη &amp; Συμβατική Ορθοδοντική</span>
+          <span class="acc-title">Αόρατη & Σύγχρονη Ορθοδοντική</span>
           <span class="acc-icon" aria-hidden="true"></span>
         </button>
         <div class="acc-panel"><div class="acc-inner">
-          <p>Με διαφανείς νάρθηκες (Invisalign, Spark) ή γλωσσικά σιδεράκια (Incognito), η ορθοδοντική θεραπεία γίνεται πρακτικά αόρατη. Για σύνθετα οδοντοσκελετικά προβλήματα, η συμβατική ορθοδοντική σε συνδυασμό με ορθοδοντικά εμφυτεύματα (mini-screws) επιτυγχάνει μετακινήσεις που παλαιότερα θεωρούνταν αδύνατες — με σταθερά αποτελέσματα και φροντίδα συγκράτησης.</p>
-          <div class="acc-chips"><span>Invisalign &amp; Spark</span><span>Incognito</span><span>Συμβατικά σιδεράκια</span><span>Συγκρατητικοί νάρθηκες</span></div>
+          <p>Η ορθοδοντική θεραπεία γίνεται πλέον αόρατη. Μέσω διαφανών ναρθήκων (Invisalign, Spark) ή εσωτερικών γλωσσικών μηχανισμών (Incognito), διορθώνουμε κάθε ορθοδοντικό ζήτημα χωρίς να επηρεάζεται η αισθητική σας. Παράλληλα, αντιμετωπίζουμε σύνθετα οδοντοσκελετικά προβλήματα με κορυφαίες τεχνικές, εγγυώμενοι ένα μόνιμο αποτέλεσμα.</p>
+          <div class="acc-chips"><span>Invisalign & Spark</span><span>Incognito</span><span>Σύγχρονα Σιδεράκια</span><span>Συγκράτηση</span></div>
         </div></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-head" aria-expanded="false">
           <span class="acc-no">05</span>
-          <span class="acc-title">Γενική Οδοντιατρική, Πρόληψη &amp; Χειρουργική</span>
+          <span class="acc-title">Γενική & Προληπτική Οδοντιατρική</span>
           <span class="acc-icon" aria-hidden="true"></span>
         </button>
         <div class="acc-panel"><div class="acc-inner">
-          <p>Καλύπτουμε όλο το φάσμα της καθημερινής φροντίδας: καθαρισμούς, φθορίωση, σφραγίσματα, απονευρώσεις και χειρουργικές εξαγωγές εγκλείστων δοντιών. Δίνουμε ιδιαίτερη έμφαση στην πρόληψη (sealants) και στη θεραπεία περιοδοντίτιδας και ουλίτιδας, αναλαμβάνοντας με υπομονή και φιλικότητα περιστατικά παιδιών έως 12 ετών.</p>
-          <div class="acc-chips"><span>Καθαρισμός</span><span>Σφράγισμα</span><span>Απονεύρωση</span><span>Εξαγωγή εγκλείστου</span><span>Περιοδοντίτιδα</span><span>Παιδοδοντική</span></div>
+          <p>Φροντίζουμε ολοκληρωμένα για τη στοματική σας υγεία. Από τον σχολαστικό καθαρισμό και τις σύγχρονες εμφράξεις, έως τις απαιτητικές ενδοδοντικές θεραπείες και χειρουργικές εξαγωγές. Δίνουμε τεράστια βαρύτητα στην πρόληψη, αντιμετωπίζοντας με απόλυτη εξειδίκευση και τρυφερότητα τους μικρούς μας ασθενείς.</p>
+          <div class="acc-chips"><span>Καθαρισμός</span><span>Εμφράξεις (Σφραγίσματα)</span><span>Ενδοδοντία</span><span>Εξαγωγές</span><span>Περιοδοντολογία</span><span>Παιδοδοντία</span></div>
         </div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
 <section class="section" id="process">
   <div class="intro-head reveal">
     <span class="eyebrow">Η Διαδρομή σας</span>
-    <h2>Πώς δουλεύουμε</h2>
+    <h2>Πώς εργαζόμαστε</h2>
   </div>
   <div class="proc-grid">
-    <div class="proc-step reveal d1"><div class="proc-no">STEP 01</div><h3>Πρώτη επίσκεψη</h3><p>Λεπτομερής στοματικός έλεγχος και κλινική αξιολόγηση. Συζητάμε τις ανάγκες σας και απαντάμε σε κάθε απορία.</p></div>
-    <div class="proc-step reveal d2"><div class="proc-no">STEP 02</div><h3>Ψηφιακή αποτύπωση</h3><p>Με τον iTero 5D αποτυπώνουμε το στόμα σας σε λίγα λεπτά — καθαρά, άνετα και με υψηλή ευκρίνεια.</p></div>
-    <div class="proc-step reveal d3"><div class="proc-no">STEP 03</div><h3>Σχεδιασμός &amp; πρόβλεψη</h3><p>Βλέπετε το τελικό αποτέλεσμα στην οθόνη πριν ξεκινήσει η θεραπεία. Κάθε κίνηση σχεδιάζεται με ακρίβεια.</p></div>
-    <div class="proc-step reveal d4"><div class="proc-no">STEP 04</div><h3>Θεραπεία &amp; συγκράτηση</h3><p>Υλοποιούμε το σχέδιο με «κλειδωμένη» ακρίβεια και σας συνοδεύουμε στη φάση της συγκράτησης.</p></div>
+    <div class="proc-step reveal d1"><div class="proc-no">STEP 01</div><h3>Πρώτη Αξιολόγηση</h3><p>Πραγματοποιούμε έναν σχολαστικό κλινικό έλεγχο, συζητάμε διεξοδικά τις ανάγκες σας και επιλύουμε κάθε απορία.</p></div>
+    <div class="proc-step reveal d2"><div class="proc-no">STEP 02</div><h3>Ψηφιακή Αποτύπωση</h3><p>Μέσω του iTero 5D, αποτυπώνουμε το στόμα σας σε ελάχιστα λεπτά — με απόλυτη ακρίβεια και χωρίς καμία δυσφορία.</p></div>
+    <div class="proc-step reveal d3"><div class="proc-no">STEP 03</div><h3>3D Σχεδιασμός</h3><p>Οπτικοποιούμε το τελικό αποτέλεσμα στην οθόνη. Κάθε λεπτομέρεια σχεδιάζεται πριν ξεκινήσει η παρέμβαση.</p></div>
+    <div class="proc-step reveal d4"><div class="proc-no">STEP 04</div><h3>Υλοποίηση & Φροντίδα</h3><p>Εφαρμόζουμε το πλάνο θεραπείας με μικροσκοπική ακρίβεια και παραμένουμε δίπλα σας στο στάδιο της συγκράτησης.</p></div>
   </div>
 </section>
 
-<!-- ============ TECH / iTERO ============ -->
 <section class="tech" id="tech">
   <div class="section">
     <div class="tech-grid">
       <div class="reveal">
-        <span class="eyebrow">iTero Element 5D · Από το 2025</span>
-        <h2>Η ψηφιακή επανάσταση στο <em>χαμόγελό σας</em>.</h2>
-        <p class="tech-lead">Η ενσωμάτωση του ενδοστοματικού σαρωτή iTero Element 5D δεν ήταν απλώς αναβάθμιση εξοπλισμού — ήταν δέσμευση απέναντι στον ασθενή: να αφήσουμε πίσω τις «αναλογικές» δυσκολίες του παρελθόντος.</p>
+        <span class="eyebrow">iTero Element 5D · Κορυφαία Τεχνολογία</span>
+        <h2>Η ψηφιακή εξέλιξη, στην υπηρεσία του <em>χαμόγελου σας</em>.</h2>
+        <p class="tech-lead">Ο ενδοστοματικός σαρωτής iTero Element 5D δεν αποτελεί απλώς μια προσθήκη εξοπλισμού. Είναι η υπόσχεσή μας να σας προσφέρουμε μια οδοντιατρική εμπειρία εντελώς απαλλαγμένη από τις δυσκολίες του παρελθόντος.</p>
         <ul class="tech-list">
           <li>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span>
-            <div><h4>Τέλος στην ταλαιπωρία του αποτυπώματος</h4><p>Ξεχάστε τις παχύρρευστες πάστες που προκαλούν ναυτία. Η ψηφιακή αποτύπωση είναι μια διαδικασία λίγων λεπτών — καθαρή, άνετη και ακριβής.</p></div>
+            <div><h4>Αποτύπωση χωρίς ενόχληση</h4><p>Ξεχάστε τα παραδοσιακά υλικά που προκαλούν δυσφορία και ναυτία. Η ψηφιακή σάρωση ολοκληρώνεται σε ελάχιστα λεπτά, προσφέροντας απόλυτη άνεση.</p></div>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg></span>
-            <div><h4>Πρόβλεψη αποτελέσματος</h4><p>Εντοπίζουμε τερηδόνα που δεν φαίνεται στην ακτινογραφία και προσομοιώνουμε στην οθόνη το πώς θα μοιάζει το τελικό αποτέλεσμα της θεραπείας σας.</p></div>
+            <div><h4>Οπτικοποίηση Αποτελέσματος</h4><p>Δείτε το νέο σας χαμόγελο πριν καν ξεκινήσουμε. Ανιχνεύουμε εγκαίρως βλάβες και σχεδιάζουμε με τρισδιάστατη ακρίβεια την πορεία της θεραπείας σας.</p></div>
           </li>
           <li>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></span>
-            <div><h4>Απόλυτη ακρίβεια εφαρμογής</h4><p>Η πλήρης ψηφιοποίηση εξαλείφει τα ανθρώπινα σφάλματα. Η εργασία «κλειδώνει» πάνω στην ανατομία σας, εξασφαλίζοντας μακροβιότητα και άνεση στη μάσηση.</p></div>
+            <div><h4>Μικροσκοπική Ακρίβεια</h4><p>Η εξ ολοκλήρου ψηφιακή ροή εκμηδενίζει την πιθανότητα σφάλματος. Κάθε αποκατάσταση προσαρμόζεται άριστα στη δική σας ανατομία, εξασφαλίζοντας φυσικότητα.</p></div>
           </li>
         </ul>
       </div>
 
       <div class="tech-visual reveal d2">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-29.jpg" alt="Σύγχρονος εξοπλισμός και ψηφιακή ροή εργασίας στο οδοντιατρείο Βογιατζής" loading="lazy">
+        <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-29.jpg" alt="Σύγχρονος εξοπλισμός και ψηφιακή ροή εργασίας στα οδοντιατρεία Βογιατζή" loading="lazy">
         <div class="hud"><span class="hud-tl">SCAN · LIVE</span><span class="hud-br">3D · MODE 5D</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ VALUES ============ -->
 <section class="section values" id="values">
   <div class="reveal">
     <span class="eyebrow">Η Φιλοσοφία μας</span>
-    <h2>Γιατί η θεραπεία σας είναι <em>προσωπική υπόθεση</em>.</h2>
+    <h2>Η θεραπεία σας είναι για εμάς, <em>απολύτως προσωπική υπόθεση</em>.</h2>
   </div>
   <div class="val-grid">
     <article class="val-card reveal d1">
       <svg class="val-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M24 6 10 12v10c0 9 6 16 14 20 8-4 14-11 14-20V12L24 6Z"/><path d="m18 24 4 4 8-8"/></svg>
-      <h3>Ψηφιακή προσωποποίηση</h3>
-      <p>Με σαρωτές και διαφανείς νάρθηκες δεν προβλέπουμε απλώς το αποτέλεσμα — το σχεδιάζουμε. Βλέπετε πώς θα κινηθεί κάθε δόντι πριν τοποθετηθεί ο πρώτος νάρθηκας. Μια εγγύηση ασφάλειας.</p>
+      <h3>Απόλυτη Προσωποποίηση</h3>
+      <p>Δεν προβλέπουμε απλώς το αποτέλεσμα, το σχεδιάζουμε με ακρίβεια χιλιοστού. Γνωρίζετε εκ των προτέρων πώς θα μετακινηθεί κάθε δόντι, αποκτώντας τη σιγουριά που σας αξίζει.</p>
     </article>
     <article class="val-card reveal d2">
       <svg class="val-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M10 40c0-8 6-12 14-12s14 4 14 12"/></svg>
-      <h3>Αισθητική ως ανάγκη</h3>
-      <p>Δεν χρειάζεται να θυσιάσετε την αυτοπεποίθησή σας. Οι αόρατες λύσεις σχεδιάζονται για ανθρώπους με έντονη επαγγελματική και κοινωνική ζωή — χωρίς τον «φόβο» του μεταλλικού χαμόγελου.</p>
+      <h3>Αισθητική Υπεροχή</h3>
+      <p>Η αυτοπεποίθησή σας παραμένει αδιαπραγμάτευτη. Οι αόρατες λύσεις μας δημιουργήθηκαν για επαγγελματίες με απαιτητική καθημερινότητα, χωρίς τον δισταγμό του συμβατικού χαμόγελου.</p>
     </article>
     <article class="val-card reveal d3">
       <svg class="val-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M24 42s-14-8-14-19a9 9 0 0 1 18-2 9 9 0 0 1 18 2c0 11-14 19-14 19Z"/></svg>
-      <h3>Η αξία της συνεργασίας</h3>
-      <p>Η οδοντιατρική φροντίδα είναι ένα ταξίδι που βασίζεται στην εμπιστοσύνη. Από την πρώτη συνάντηση έως την τελική φάση, στόχος μας είναι να κατανοήσουμε τις δικές σας προσδοκίες.</p>
+      <h3>Σχέση Εμπιστοσύνης</h3>
+      <p>Η οδοντιατρική φροντίδα είναι ένα κοινό ταξίδι. Από την πρώτη μας συνάντηση έως την ολοκλήρωση της θεραπείας, πρωταρχικός μας στόχος είναι να ξεπεράσουμε τις προσδοκίες σας.</p>
     </article>
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="section">
     <div class="rev-head">
       <div class="reveal">
-        <span class="eyebrow">Κριτικές Ασθενών</span>
-        <h2>Η εμπιστοσύνη, με <em>τα δικά τους λόγια</em>.</h2>
+        <span class="eyebrow">Αξιολογήσεις Ασθενών</span>
+        <h2>Η εμπιστοσύνη σας, μέσα από τα <em>δικά σας λόγια</em>.</h2>
       </div>
-      <div class="rev-score reveal d1"><b>10.0</b>Doctoranytime · Google<br>Βαθμολογία ασθενών</div>
+      <div class="rev-score reveal d1"><b>10.0</b>Doctoranytime · Google<br>Απόλυτη Βαθμολογία</div>
     </div>
 
     <div class="rev-viewport reveal">
@@ -718,22 +734,22 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«Είναι εξαιρετικός. Έδειξε μεγάλο ενδιαφέρον, συζητήσαμε όλα τα ενδεχόμενα για την περίπτωσή μου — με μεγάλη εμπειρία και πολύ καλή διάθεση.»</p>
+          <p class="rev-q">«Είναι εξαιρετικός. Έδειξε μεγάλο ενδιαφέρον, συζητήσαμε όλα τα ενδεχόμενα για την περίπτωσή μου — με τεράστια εμπειρία και πολύ καλή διάθεση.»</p>
           <div class="rev-name">Αλίκη</div><div class="rev-date">06 Αυγούστου 2025</div>
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«Πολύ καταρτισμένος γιατρός, σου εμπνέει εμπιστοσύνη και σου λύνει πραγματικά όλες τις απορίες!»</p>
+          <p class="rev-q">«Πολύ καταρτισμένος γιατρός, σου εμπνέει απόλυτη εμπιστοσύνη και σου λύνει πραγματικά κάθε απορία!»</p>
           <div class="rev-name">Sofia</div><div class="rev-date">02 Αυγούστου 2025</div>
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«The service was very patient and meticulous, the problem was solved very well, and the fees were reasonable. I recommend this dentist.»</p>
+          <p class="rev-q">«The service was very patient and meticulous, the problem was solved very well, and the fees were reasonable. I highly recommend this dentist.»</p>
           <div class="rev-name">Echo</div><div class="rev-date">09 Νοεμβρίου 2025</div>
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«Έναν απλό καθαρισμό κάναμε, αλλά δεν ήταν καθόλου επίπονη διαδικασία — ο γιατρός ήταν πολύ προσεκτικός. Θα τον ξαναπροτιμήσουμε.»</p>
+          <p class="rev-q">«Κάναμε έναν απλό καθαρισμό, αλλά η διαδικασία δεν ήταν καθόλου επίπονη — ο γιατρός ήταν εξαιρετικά προσεκτικός. Θα τον ξαναπροτιμήσουμε σίγουρα.»</p>
           <div class="rev-name">Marilena</div><div class="rev-date">05 Ιουλίου 2025</div>
         </div></div>
       </div>
@@ -744,63 +760,61 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
       <button class="rev-btn" id="revNext" aria-label="Επόμενη κριτική"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <div class="rev-dots" id="revDots" role="tablist" aria-label="Επιλογή κριτικής"></div>
     </div>
-    <a class="rev-more" href="https://www.doctoranytime.gr/d/Odontiatros/vogiatzis-nikos#review-section" target="_blank" rel="noopener">Δείτε όλες τις κριτικές
+    <a class="rev-more" href="https://www.doctoranytime.gr/d/Odontiatros/vogiatzis-nikos#review-section" target="_blank" rel="noopener">Διαβάστε όλες τις αξιολογήσεις
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
     </a>
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
 <section class="section" id="faq">
   <div class="faq-wrap">
     <div class="faq-intro reveal">
       <span class="eyebrow">Συχνές Ερωτήσεις</span>
-      <h2>Καλό είναι να <em>ξέρετε</em>.</h2>
-      <p>Δεν βρήκατε την απάντηση που ψάχνετε; Επικοινωνήστε μαζί μας και θα χαρούμε να σας εξυπηρετήσουμε.</p>
+      <h2>Όλα όσα χρειάζεται να <em>γνωρίζετε</em>.</h2>
+      <p>Δεν βρήκατε την απάντηση που αναζητάτε; Η ομάδα μας βρίσκεται στη διάθεσή σας για οποιαδήποτε διευκρίνιση.</p>
       <a href="#contact" class="faq-cta">Επικοινωνήστε μαζί μας
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
     <div class="faq-list reveal d1">
       <div class="faq-q">
-        <button aria-expanded="false"><span>Τι είναι ο σαρωτής iTero Element 5D;</span><span class="faq-plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Είναι ένας προηγμένος ενδοστοματικός σαρωτής που αποτυπώνει ψηφιακά το στόμα σας σε λίγα λεπτά — χωρίς δυσάρεστα αποτυπωτικά υλικά. Επιτρέπει την πρόβλεψη του αποτελέσματος, τον εντοπισμό τερηδόνας και την απόλυτη ακρίβεια εφαρμογής.</p></div>
+        <button aria-expanded="false"><span>Τι ακριβώς είναι ο σαρωτής iTero Element 5D;</span><span class="faq-plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Πρόκειται για έναν υπερσύγχρονο ενδοστοματικό σαρωτή που αποτυπώνει ψηφιακά και τρισδιάστατα το στόμα σας σε λίγα λεπτά — καταργώντας τα δυσάρεστα αποτυπωτικά υλικά. Μας επιτρέπει την ακριβή οπτικοποίηση του τελικού αποτελέσματος, τον έγκαιρο εντοπισμό τερηδόνας και την άριστη εφαρμογή των προσθετικών εργασιών.</p></div>
       </div>
       <div class="faq-q">
-        <button aria-expanded="false"><span>Δέχεστε παιδιά;</span><span class="faq-plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Ναι. Αναλαμβάνουμε με υπομονή και φιλικότητα παιδοδοντικά περιστατικά για παιδιά έως 12 ετών, με έμφαση στην πρόληψη (sealants, φθορίωση) και την ορθοδοντική παρακολούθηση.</p></div>
+        <button aria-expanded="false"><span>Αναλαμβάνετε παιδοδοντικά περιστατικά;</span><span class="faq-plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Βεβαίως. Προσεγγίζουμε με τεράστια υπομονή και φιλικότητα τα παιδιά έως 12 ετών, δίνοντας έμφαση στην έγκαιρη πρόληψη (sealants, φθορίωση) και στη σωστή ορθοδοντική παρακολούθηση της ανάπτυξής τους.</p></div>
       </div>
       <div class="faq-q">
-        <button aria-expanded="false"><span>Οι διαφανείς νάρθηκες είναι όντως αόρατοι;</span><span class="faq-plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Πρακτικά ναι. Με Invisalign και Spark, ή με γλωσσικά σιδεράκια Incognito, η θεραπεία γίνεται διακριτική και ιδανική για ανθρώπους με έντονη επαγγελματική και κοινωνική ζωή — χωρίς να επηρεάζει την εμφάνισή σας.</p></div>
+        <button aria-expanded="false"><span>Είναι οι διαφανείς νάρθηκες πραγματικά αόρατοι;</span><span class="faq-plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Σχεδόν απόλυτα. Εφαρμόζοντας κορυφαία συστήματα όπως Invisalign και Spark, ή εναλλακτικά τα γλωσσικά σιδεράκια Incognito, η θεραπεία παραμένει άκρως διακριτική. Είναι η ιδανική επιλογή για ενήλικες με απαιτητική επαγγελματική ζωή, διαφυλάσσοντας στο ακέραιο την αισθητική σας.</p></div>
       </div>
       <div class="faq-q">
-        <button aria-expanded="false"><span>Πού βρίσκονται τα ιατρεία σας;</span><span class="faq-plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Διατηρούμε ιατρεία στη Νέα Κηφισιά (Πλειάδων 95) και στον Πειραιά (Αγίας Σοφίας 28). Επικοινωνήστε μαζί μας για να κλείσετε ραντεβού στην τοποθεσία που σας εξυπηρετεί.</p></div>
+        <button aria-expanded="false"><span>Σε ποιες περιοχές βρίσκονται τα ιατρεία σας;</span><span class="faq-plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Διατηρούμε δύο υπερσύγχρονα ιατρεία στην Αττική: στη Νέα Κηφισιά (Πλειάδων 95) και στον Πειραιά (Αγίας Σοφίας 28). Μπορείτε να επιλέξετε την τοποθεσία που σας εξυπηρετεί καλύτερα για τον προγραμματισμό του ραντεβού σας.</p></div>
       </div>
       <div class="faq-q">
-        <button aria-expanded="false"><span>Αντιμετωπίζετε επείγοντα περιστατικά;</span><span class="faq-plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Ναι, δίνουμε έμφαση στην άμεση αντιμετώπιση οξέων περιστατικών. Παρέχουμε επίσης άμεση εξυπηρέτηση για αντικατάσταση ή επιδιόρθωση συγκρατητικών συρμάτων και ναρθήκων.</p></div>
+        <button aria-expanded="false"><span>Πώς διαχειρίζεστε τα επείγοντα περιστατικά;</span><span class="faq-plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Κατανοούμε την ανάγκη για άμεση ανακούφιση. Δίνουμε απόλυτη προτεραιότητα στα οξέα περιστατικά (πόνος, οιδήματα), ενώ παρέχουμε ταχύτατη εξυπηρέτηση για την επιδιόρθωση ορθοδοντικών μηχανισμών και συγκρατητικών συρμάτων.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="section">
     <div class="contact-grid">
       <div class="reveal">
         <span class="eyebrow">Επικοινωνία</span>
-        <h2>Ας σχεδιάσουμε το <em>χαμόγελό σας</em>.</h2>
-        <p class="contact-lead">Κλείστε το ραντεβού σας ή επικοινωνήστε για οποιαδήποτε απορία. Είμαστε εδώ για να σας ακούσουμε.</p>
+        <h2>Το νέο σας χαμόγελο, <em>ξεκινά από εδώ</em>.</h2>
+        <p class="contact-lead">Προγραμματίστε το ραντεβού σας ή επικοινωνήστε μαζί μας για οποιαδήποτε ερώτηση. Είμαστε εδώ για να σχεδιάσουμε τη λύση που σας ταιριάζει.</p>
         <div class="contact-direct">
           <a href="tel:+302121055801"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>+30 21 2105 5801</a>
-          <a href="tel:+302122105581"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>697 68 55781</a>
+          <a href="tel:+306976855781"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>697 68 55781</a>
           <a href="mailto:nikos.vogiatzis1990@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>nikos.vogiatzis1990@gmail.com</a>
         </div>
         <div class="contact-actions">
-          <a href="tel:+302121055801" class="btn btn-primary">Κλείστε ραντεβού
+          <a href="tel:+302121055801" class="btn btn-primary">Καλέστε Μας
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -813,13 +827,13 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
 
       <div class="loc-cards reveal d1">
         <div class="loc">
-          <div class="loc-label">Ιατρείο · Νέα Κηφισιά</div>
+          <div class="loc-label">Κλινική · Νέα Κηφισιά</div>
           <h3>Πλειάδων 95</h3>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Πλειάδων 95, Κηφισιά, Αττική 14564</div>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:+302121055801">212 105 5801</a></div>
         </div>
         <div class="loc">
-          <div class="loc-label">Ιατρείο · Πειραιάς</div>
+          <div class="loc-label">Κλινική · Πειραιάς</div>
           <h3>Αγίας Σοφίας 28</h3>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Αγίας Σοφίας 28, Πειραιάς, Αττική</div>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:+302104200321">210 420 0321</a></div>
@@ -828,29 +842,26 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
     </div>
 
     <div class="map-embed reveal">
-      <iframe title="Χάρτης — Οδοντιατρείο Βογιατζής, Πλειάδων 95, Κηφισιά" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%CE%A0%CE%BB%CE%B5%CE%B9%CE%AC%CE%B4%CF%89%CE%BD%2095%2C%20%CE%9A%CE%B7%CF%86%CE%B9%CF%83%CE%B9%CE%AC%2014564&output=embed"></iframe>
+      <iframe title="Χάρτης — Οδοντιατρεία Βογιατζή, Πλειάδων 95, Κηφισιά" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%CE%A0%CE%BB%CE%B5%CE%B9%CE%AC%CE%B4%CF%89%CE%BD%2095%2C%20%CE%9A%CE%B7%CF%86%CE%B9%CF%83%CE%B9%CE%AC%2014564&output=embed"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="foot">
-    <div>© <span id="year"></span> Vogiatzis Dentistry · Νίκος &amp; Φώτης Βογιατζής</div>
+    <div>© <span id="year"></span> Vogiatzis Dentistry · Νίκος & Φώτης Βογιατζής</div>
     <div class="foot-credit">Designed by <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></div>
   </div>
 </footer>
 
-</div><!-- /sheet -->
-
-<script>
+</div><script>
 (() => {
   'use strict';
 
   /* ---- Loader ---- */
   const loader = document.getElementById('loader');
   window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('done'), 2100);
+    setTimeout(() => loader.classList.add('done'), 1800);
   });
   // safety fallback
   setTimeout(() => loader.classList.add('done'), 3600);
@@ -938,10 +949,10 @@ footer{background:var(--slate-ink);color:rgba(255,255,255,.5);position:relative;
   document.getElementById('revNext').addEventListener('click', () => { index = (index + 1) % pages(); update(); });
   document.getElementById('revPrev').addEventListener('click', () => { index = (index - 1 + pages()) % pages(); update(); });
 
-  let auto = setInterval(() => { index = (index + 1) % pages(); update(); }, 5500);
+  let auto = setInterval(() => { index = (index + 1) % pages(); update(); }, 6000);
   const viewport = track.parentElement;
   viewport.addEventListener('mouseenter', () => clearInterval(auto));
-  viewport.addEventListener('mouseleave', () => { auto = setInterval(() => { index = (index + 1) % pages(); update(); }, 5500); });
+  viewport.addEventListener('mouseleave', () => { auto = setInterval(() => { index = (index + 1) % pages(); update(); }, 6000); });
 
   let rt;
   window.addEventListener('resize', () => {
