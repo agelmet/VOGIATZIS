@@ -102,8 +102,7 @@ header.scrolled .nav{padding-top:1rem;padding-bottom:1rem}
 .brand{display:flex;align-items:center;gap:.75rem;color:#fff;transition:color .5s, transform .3s var(--ease-spring)}
 .brand:hover{transform:scale(1.02)}
 header.scrolled .brand{color:var(--slate-ink)}
-.brand-mark{width:34px;height:34px;flex:none}
-.brand-mark path{stroke:var(--ice-deep);stroke-width:2.4;fill:none}
+.brand-mark{width:38px;height:38px;flex:none; border-radius:4px; object-fit:cover;}
 .brand-txt{font-family:var(--ff-display);font-size:1.18rem;letter-spacing:.04em;line-height:1}
 .brand-txt small{display:block;font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.22em;opacity:.7;margin-top:3px}
 .nav-links{display:flex;align-items:center;gap:2.2rem}
@@ -156,18 +155,20 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 @keyframes slowPan { 0% { transform: scale(1.02); } 100% { transform: scale(1.08); } }
 .hero-scrim{
   position:fixed;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(26,30,36,.85) 0%,rgba(26,30,36,.5) 40%,rgba(26,30,36,.95) 100%),
-             linear-gradient(90deg,rgba(26,30,36,.8),rgba(26,30,36,.1));
+  /* Lighter scrim to make background more visible */
+  background:linear-gradient(180deg,rgba(26,30,36,.55) 0%,rgba(26,30,36,.25) 40%,rgba(26,30,36,.8) 100%),
+             linear-gradient(90deg,rgba(26,30,36,.5),rgba(26,30,36,.0));
 }
 /* scanning beam over hero */
 .scan-beam{position:fixed;left:0;right:0;height:160px;z-index:-1;pointer-events:none;
   background:linear-gradient(180deg,transparent,rgba(176,237,255,.08) 45%,rgba(176,237,255,.25) 50%,rgba(176,237,255,.08) 55%,transparent);
   animation:scan 8s var(--ease-soft) infinite;mix-blend-mode:screen}
 @keyframes scan{0%{top:-160px}100%{top:100vh}}
-.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 var(--pad-x) clamp(3.5rem,7vw,6rem)}
+.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 var(--pad-x) clamp(3.5rem,7vw,6rem); transform:translateX(clamp(-10px, -4vw, -45px));}
 .hero-tag{margin-bottom:1.6rem;color:var(--ice)}
 .hero-tag.in{animation:fadeUp .9s var(--ease-expo) .1s both}
-.hero h1{color:#fff;font-size:clamp(2.6rem,7.5vw,6rem);font-weight:300;max-width:14ch}
+/* Smaller h1 */
+.hero h1{color:#fff;font-size:clamp(2.2rem,6vw,4.8rem);font-weight:300;max-width:14ch}
 .hero h1 .em{font-style:italic;color:var(--ice); text-shadow:0 0 30px rgba(176,237,255,0.3);}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:block;transform:translateY(110%);animation:rise 1s var(--ease-expo) both}
@@ -175,7 +176,7 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .hero h1 .line:nth-child(2) span{animation-delay:.4s}
 .hero h1 .line:nth-child(3) span{animation-delay:.55s}
 @keyframes rise{to{transform:none}}
-.hero-sub{margin-top:1.8rem;max-width:48ch;color:rgba(255,255,255,.85);font-size:clamp(1rem,1.6vw,1.18rem);font-weight:300;opacity:0;animation:fadeUp 1s var(--ease-expo) .8s forwards}
+.hero-sub{margin-top:1.8rem;max-width:48ch;color:rgba(255,255,255,.9);font-size:clamp(1rem,1.6vw,1.18rem);font-weight:300;opacity:0;animation:fadeUp 1s var(--ease-expo) .8s forwards; text-shadow: 0 2px 10px rgba(0,0,0,0.5);}
 .hero-actions{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;opacity:0;animation:fadeUp 1s var(--ease-expo) 1s forwards}
 .btn{
   display:inline-flex;align-items:center;gap:.7rem;padding:1.1rem 2.2rem;border-radius:46px;
@@ -212,7 +213,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 
 /* ============ ABOUT / DUAL DOCTORS ============ */
 .intro-head{display:grid;grid-template-columns:1fr;gap:1.4rem;max-width:68ch}
-.intro-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:400}
+/* Smaller h2 */
+.intro-head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400}
 .intro-head h2 em{font-style:italic;color:var(--ice-deep)}
 .intro-head p{color:var(--slate);font-size:1.1rem;line-height:1.7}
 .docs{margin-top:clamp(3.5rem,6vw,5.5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,3rem)}
@@ -231,7 +233,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .doc:hover .doc-img::after{opacity:0.7;}
 .doc-tag{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate-ink);background:rgba(176,237,255,.95);padding:.5rem .8rem;border-radius:4px; box-shadow:0 4px 15px rgba(0,0,0,0.1); backdrop-filter:blur(4px);}
 .doc-body{padding:clamp(1.6rem,2.5vw,2.4rem)}
-.doc-body h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+/* Smaller h3 */
+.doc-body h3{font-size:clamp(1.3rem,2.2vw,1.8rem)}
 .doc-role{font-family:var(--ff-mono);font-size:.75rem;letter-spacing:.12em;color:var(--ice-deep);margin-top:.6rem;text-transform:uppercase}
 .doc-body p{margin-top:1.2rem;color:var(--slate);font-size:.98rem; line-height:1.7}
 .doc-creds{margin-top:1.5rem;display:flex;flex-direction:column;gap:.7rem;border-top:1px solid var(--line);padding-top:1.4rem}
@@ -247,7 +250,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .services{background:var(--slate-ink);color:#fff;position:relative;z-index:1; box-shadow: inset 0 20px 60px rgba(0,0,0,0.5);}
 .services .eyebrow{color:var(--ice)}
 .services-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(3rem,5vw,5rem)}
-.services-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:400;color:#fff;max-width:20ch}
+/* Smaller h2 */
+.services-head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#fff;max-width:20ch}
 .services-head h2 em{font-style:italic;color:var(--ice)}
 .acc{border-top:1px solid rgba(255,255,255,.08)}
 .acc-item{border-bottom:1px solid rgba(255,255,255,.08); transition:background .4s;}
@@ -255,7 +259,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .acc-head{width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.8rem;padding:clamp(1.6rem,3vw,2.4rem) 0;text-align:left;transition:padding-left .5s var(--ease-spring)}
 .acc-head:hover{padding-left:.8rem}
 .acc-no{font-family:var(--ff-mono);font-size:.85rem;color:var(--ice-deep);letter-spacing:.05em}
-.acc-title{font-family:var(--ff-display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:400;transition:color .3s}
+/* Smaller title */
+.acc-title{font-family:var(--ff-display);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:400;transition:color .3s}
 .acc-head:hover .acc-title,.acc-item.open .acc-title{color:var(--ice)}
 .acc-icon{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;flex:none;transition:all .5s var(--ease-spring)}
 .acc-item.open .acc-icon{background:var(--ice);border-color:var(--ice);transform:rotate(135deg) scale(1.1); box-shadow:0 0 15px rgba(176,237,255,.4);}
@@ -277,7 +282,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .proc-step::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--ice-deep);transition:width .6s var(--ease-expo)}
 .proc-step:hover::before{width:100%}
 .proc-no{font-family:var(--ff-mono);font-size:.8rem;color:var(--ice-deep);letter-spacing:.12em}
-.proc-step h3{margin-top:1.6rem;font-size:clamp(1.3rem,2.3vw,1.55rem);font-weight:500}
+/* Smaller h3 */
+.proc-step h3{margin-top:1.6rem;font-size:clamp(1.1rem,2vw,1.3rem);font-weight:500}
 .proc-step p{margin-top:.8rem;color:var(--slate);font-size:.95rem; line-height:1.6}
 
 /* ============ TECH FEATURE (iTero) ============ */
@@ -286,7 +292,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(40px) scale(1.05)}}
 .tech-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(3rem,6vw,6rem);align-items:center;position:relative}
 .tech .eyebrow{color:var(--ice)}
-.tech h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:300;margin-top:1.6rem; line-height:1.1;}
+/* Smaller h2 */
+.tech h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;margin-top:1.6rem; line-height:1.1;}
 .tech h2 em{font-style:italic;color:var(--ice)}
 .tech-lead{margin-top:1.6rem;color:rgba(255,255,255,.85);font-size:1.1rem;font-weight:300;max-width:52ch; line-height:1.7;}
 .tech-list{margin-top:2.4rem;display:flex;flex-direction:column;gap:1.8rem}
@@ -311,7 +318,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 
 /* ============ VALUES ============ */
 .values .eyebrow{color:var(--ice-deep)}
-.values h2{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:400;margin-top:1.4rem;max-width:20ch}
+/* Smaller h2 */
+.values h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;margin-top:1.4rem;max-width:20ch}
 .values h2 em{font-style:italic;color:var(--ice-deep)}
 .val-grid{margin-top:clamp(3rem,5vw,5rem);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2vw,2rem)}
 .val-card{background:var(--paper-pure);border:1px solid rgba(0,0,0,0.03);border-radius:6px;padding:clamp(2rem,3vw,2.8rem);position:relative;overflow:hidden;transition:all .6s var(--ease-spring); box-shadow:0 8px 25px -10px rgba(0,0,0,0.04);}
@@ -320,14 +328,16 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .val-card:hover::after{transform:scaleX(1)}
 .val-ic{width:52px;height:52px;color:var(--ice-deep);margin-bottom:1.5rem; transition:transform .5s var(--ease-spring);}
 .val-card:hover .val-ic{transform:scale(1.1) translateY(-5px); color:var(--slate-ink);}
-.val-card h3{font-size:1.4rem;font-weight:500; color:var(--slate-ink);}
+/* Smaller h3 */
+.val-card h3{font-size:1.25rem;font-weight:500; color:var(--slate-ink);}
 .val-card p{margin-top:1rem;color:var(--slate);font-size:.98rem; line-height:1.6;}
 
 /* ============ TESTIMONIALS ============ */
 .reviews{background:var(--slate);color:#fff;position:relative;z-index:1;overflow:hidden; box-shadow:inset 0 20px 50px rgba(0,0,0,0.3);}
 .reviews .eyebrow{color:var(--ice)}
 .rev-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
-.rev-head h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:400;color:#fff}
+/* Smaller h2 */
+.rev-head h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#fff}
 .rev-head h2 em{font-style:italic;color:var(--ice)}
 .rev-score{font-family:var(--ff-mono);text-align:right;font-size:.78rem;letter-spacing:.12em;color:var(--ice-soft);line-height:1.9}
 .rev-score b{display:block;font-family:var(--ff-display);font-size:2.8rem;color:#fff;letter-spacing:0; text-shadow:0 4px 20px rgba(0,0,0,0.3);}
@@ -354,7 +364,8 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 
 /* ============ FAQ ============ */
 .faq-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(3rem,5vw,5rem);align-items:start}
-.faq-intro h2{font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:400}
+/* Smaller h2 */
+.faq-intro h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400}
 .faq-intro h2 em{font-style:italic;color:var(--ice-deep)}
 .faq-intro p{margin-top:1.4rem;color:var(--slate); font-size:1.05rem; line-height:1.7;}
 .faq-intro .faq-cta{margin-top:2rem;display:inline-flex;align-items:center;gap:.8rem;font-weight:600;color:var(--slate-ink);border-bottom:2px solid var(--ice-deep);padding-bottom:.4rem; transition:all .3s;}
@@ -377,15 +388,21 @@ body.menu-open #mobileMenu a:nth-child(5){transition-delay:.43s}
 .contact{background:var(--slate-ink);color:#fff;position:relative;z-index:1; box-shadow: inset 0 20px 60px rgba(0,0,0,0.5);}
 .contact .eyebrow{color:var(--ice)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,5vw,6rem)}
-.contact h2{font-size:clamp(2.4rem,5vw,4rem);font-weight:300;margin-top:1.4rem; line-height:1.1;}
+/* Smaller h2 */
+.contact h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:300;margin-top:1.4rem; line-height:1.1;}
 .contact h2 em{font-style:italic;color:var(--ice)}
 .contact-lead{margin-top:1.6rem;color:rgba(255,255,255,.8);max-width:44ch; font-size:1.1rem;}
 .contact-actions{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:1rem}
+/* Move locations down on desktop */
+@media(min-width: 980px){
+  .loc-cards{margin-top: 4rem;}
+}
 .loc-cards{display:flex;flex-direction:column;gap:1.4rem}
 .loc{background:var(--slate-deep);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem;transition:all .5s var(--ease-spring); box-shadow:0 10px 30px rgba(0,0,0,0.2);}
 .loc:hover{border-color:rgba(176,237,255,.3);transform:translateX(8px); box-shadow:0 15px 40px rgba(0,0,0,0.4); background:rgba(255,255,255,.03);}
 .loc-label{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.2em;color:var(--ice-deep);text-transform:uppercase}
-.loc h3{font-size:1.4rem;font-weight:500;margin-top:.8rem; color:#fff;}
+/* Smaller h3 */
+.loc h3{font-size:1.25rem;font-weight:500;margin-top:.8rem; color:#fff;}
 .loc-row{display:flex;gap:.8rem;align-items:center;margin-top:.9rem;font-size:.95rem;color:rgba(255,255,255,.85)}
 .loc-row svg{width:18px;height:18px;color:var(--ice);flex:none}
 .loc-row a{transition:color .3s;}
@@ -454,11 +471,11 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 <header id="header">
   <nav class="nav" aria-label="Κύρια πλοήγηση">
     <a href="#top" class="brand" aria-label="Vogiatzis Dentistry — Αρχική">
-      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-6 0-9 4-15 4S8 7 8 14c0 9 4 14 6 22 2 7 3 22 7 22 4 0 3-14 5-14h0c2 0 1 14 5 14 4 0 5-15 7-22 2-8 6-13 6-22 0-7-3-4-9-4S38 6 32 6Z"/></svg>
+      <img class="brand-mark" src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry">
       <span class="brand-txt">VOGIATZIS<small>DENTISTRY · IMPLANTS · ORTHODONTICS</small></span>
     </a>
     <div class="nav-links">
-      <a href="#doctors">Οι Ιατροί</a>
+      <a href="#doctors">Οι Οδοντίατροι</a>
       <a href="#services">Υπηρεσίες</a>
       <a href="#tech">Τεχνολογία</a>
       <a href="#reviews">Ασθενείς</a>
@@ -469,7 +486,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 </header>
 
 <div id="mobileMenu">
-  <a href="#doctors"><span class="mm-num">01</span>Οι Ιατροί</a>
+  <a href="#doctors"><span class="mm-num">01</span>Οι Οδοντίατροι</a>
   <a href="#services"><span class="mm-num">02</span>Υπηρεσίες</a>
   <a href="#tech"><span class="mm-num">03</span>Τεχνολογία</a>
   <a href="#reviews"><span class="mm-num">04</span>Ασθενείς</a>
@@ -491,12 +508,12 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
       <span class="line"><span>σχεδιασμένο με</span></span>
       <span class="line"><span><em>ψηφιακή ακρίβεια.</em></span></span>
     </h1>
-    <p class="hero-sub">Δύο αδέρφια, μία κοινή φιλοσοφία. Συνδυάζουμε την εξειδικευμένη επιστημονική γνώση με την κορυφαία τεχνολογία του ενδοστοματικού σαρωτή iTero Element 5D, σχεδιάζοντας το τέλειο αποτέλεσμα πριν καν ξεκινήσει η θεραπεία σας.</p>
+    <p class="hero-sub">Δύο ειδικοί, μία φιλοσοφία. Συνδυάζουμε την επιστημονική αρτιότητα με τον ενδοστοματικό σαρωτή iTero Element 5D — για αποτελέσματα που σχεδιάζονται πριν καν ξεκινήσει η θεραπεία.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Προγραμματίστε Ραντεβού
+      <a href="#contact" class="btn btn-primary">Κλείστε ραντεβού
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a href="#tech" class="btn btn-ghost">Γνωρίστε την iTero 5D</a>
+      <a href="#tech" class="btn btn-ghost">Η τεχνολογία iTero 5D</a>
     </div>
   </div>
   <div class="hero-readout" aria-hidden="true">
@@ -519,8 +536,8 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
 <section class="section" id="doctors">
   <div class="intro-head reveal">
-    <span class="eyebrow">Οι Ιατροί</span>
-    <h2>Δύο ιατροί, δύο εξειδικεύσεις. Ένα <em>κοινό όραμα</em> για το δικό σας χαμόγελο.</h2>
+    <span class="eyebrow">Οι Οδοντίατροι</span>
+    <h2>Δύο οδοντίατροι, δύο εξειδικεύσεις. Ένα <em>κοινό όραμα</em> για το δικό σας χαμόγελο.</h2>
     <p>Στα οδοντιατρεία Βογιατζή, η σύγχρονη προσθετική και η αισθητική ορθοδοντική συνυπάρχουν αρμονικά. Κάθε περιστατικό προσεγγίζεται με απόλυτη επιστημονική ακρίβεια, ψηφιακό σχεδιασμό και, πάνω απ' όλα, γνήσιο ανθρώπινο ενδιαφέρον.</p>
   </div>
 
@@ -724,7 +741,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«10 στα 10. Πήγα για έναν καθαρισμό και ο γιατρός μου έκανε ένα μίνι σεμινάριο για τη στοματική υγιεινή. Πολύ επεξηγηματικός, χωρίς άγχος. Προτείνεται ανεπιφύλακτα.»</p>
+          <p class="rev-q">«10 στα 10. Πήγα για έναν καθαρισμό και ο οδοντίατρος μου έκανε ένα μίνι σεμινάριο για τη στοματική υγιεινή. Πολύ επεξηγηματικός, χωρίς άγχος. Προτείνεται ανεπιφύλακτα.»</p>
           <div class="rev-name">Διονύσης</div><div class="rev-date">21 Μαΐου 2026</div>
         </div></div>
         <div class="rev-card"><div class="rev-inner">
@@ -739,7 +756,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«Πολύ καταρτισμένος γιατρός, σου εμπνέει απόλυτη εμπιστοσύνη και σου λύνει πραγματικά κάθε απορία!»</p>
+          <p class="rev-q">«Πολύ καταρτισμένος οδοντίατρος, σου εμπνέει απόλυτη εμπιστοσύνη και σου λύνει πραγματικά κάθε απορία!»</p>
           <div class="rev-name">Sofia</div><div class="rev-date">02 Αυγούστου 2025</div>
         </div></div>
         <div class="rev-card"><div class="rev-inner">
@@ -749,7 +766,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
         </div></div>
         <div class="rev-card"><div class="rev-inner">
           <div class="rev-stars" aria-label="10 στα 10">★★★★★</div>
-          <p class="rev-q">«Κάναμε έναν απλό καθαρισμό, αλλά η διαδικασία δεν ήταν καθόλου επίπονη — ο γιατρός ήταν εξαιρετικά προσεκτικός. Θα τον ξαναπροτιμήσουμε σίγουρα.»</p>
+          <p class="rev-q">«Κάναμε έναν απλό καθαρισμό, αλλά η διαδικασία δεν ήταν καθόλου επίπονη — ο οδοντίατρος ήταν εξαιρετικά προσεκτικός. Θα τον ξαναπροτιμήσουμε σίγουρα.»</p>
           <div class="rev-name">Marilena</div><div class="rev-date">05 Ιουλίου 2025</div>
         </div></div>
       </div>
@@ -827,13 +844,13 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
       <div class="loc-cards reveal d1">
         <div class="loc">
-          <div class="loc-label">Κλινική · Νέα Κηφισιά</div>
+          <div class="loc-label">Ιατρείο · Νέα Κηφισιά</div>
           <h3>Πλειάδων 95</h3>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Πλειάδων 95, Κηφισιά, Αττική 14564</div>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:+302121055801">212 105 5801</a></div>
         </div>
         <div class="loc">
-          <div class="loc-label">Κλινική · Πειραιάς</div>
+          <div class="loc-label">Ιατρείο · Πειραιάς</div>
           <h3>Αγίας Σοφίας 28</h3>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Αγίας Σοφίας 28, Πειραιάς, Αττική</div>
           <div class="loc-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:+302104200321">210 420 0321</a></div>
@@ -849,7 +866,10 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
 <footer>
   <div class="foot">
-    <div>© <span id="year"></span> Vogiatzis Dentistry · Νίκος & Φώτης Βογιατζής</div>
+    <div style="display:flex; align-items:center; gap:1.2rem;">
+      <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry Logo" style="width:42px; height:42px; border-radius:4px; object-fit:cover;">
+      <div>© <span id="year"></span> Vogiatzis Dentistry · Νίκος & Φώτης Βογιατζής</div>
+    </div>
     <div class="foot-credit">Designed by <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></div>
   </div>
 </footer>
