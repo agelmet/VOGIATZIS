@@ -121,14 +121,14 @@ header.scrolled .nav-links a:not(.nav-cta):hover{color:var(--slate-ink)}
 header.scrolled .nav-cta{background:transparent; color:var(--slate-ink)!important; border-color:var(--slate-ink)}
 .nav-cta:hover{background:var(--ice); color:var(--slate-ink)!important; border-color:var(--ice); box-shadow:0 8px 20px rgba(176,237,255,.3); transform:translateY(-2px)}
 
-.burger{display:none;width:30px;height:18px;position:relative;z-index:1001}
-.burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;transition:.4s var(--ease-expo)}
+.burger{display:none;width:30px;height:20px;position:relative;z-index:1001}
+.burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;transition:all .4s var(--ease-expo); border-radius:2px;}
 header.scrolled .burger span{background:var(--slate-ink)}
-.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:8px}.burger span:nth-child(3){top:16px}
-body.menu-open .burger span{background:#fff}
-body.menu-open .burger span:nth-child(1){top:8px;transform:rotate(45deg)}
-body.menu-open .burger span:nth-child(2){opacity:0}
-body.menu-open .burger span:nth-child(3){top:8px;transform:rotate(-45deg)}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:9px}.burger span:nth-child(3){top:18px}
+body.menu-open .burger span{background:#fff!important}
+body.menu-open .burger span:nth-child(1){top:9px;transform:rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0;transform:scaleX(0)}
+body.menu-open .burger span:nth-child(3){top:9px;transform:rotate(-45deg)}
 
 #mobileMenu{
   position:fixed;inset:0;z-index:1000;background:var(--slate-ink);
@@ -443,6 +443,8 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 @media(max-width:760px){
   .nav-links{display:none}
   .burger{display:block}
+  /* Mobile-only tag repositioning */
+  .doc-tag{top:auto; bottom:1.2rem; left:1.2rem;}
 }
 @media(max-width:560px){
   .proc-grid{grid-template-columns:1fr}
@@ -460,7 +462,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 </head>
 <body>
 
-<!-- ============ LOADER ============ -->
 <div id="loader">
   <div class="load-wrap">
     <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/fc1209f06f5b4e68a8264c9be8b5ebea1ec1c1bb/unnamed-36.jpg" alt="Vogiatzis Dentistry Logo" class="load-logo">
@@ -469,7 +470,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </div>
 
-<!-- ============ NAV ============ -->
 <header id="header">
   <nav class="nav" aria-label="Κύρια πλοήγηση">
     <a href="#top" class="brand" aria-label="Vogiatzis Dentistry — Αρχική">
@@ -497,7 +497,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
 <span id="top"></span>
 
-<!-- ============ HERO ============ -->
 <div class="hero-bg" aria-hidden="true"></div>
 <div class="hero-scrim" aria-hidden="true"></div>
 <div class="scan-beam" aria-hidden="true"></div>
@@ -530,7 +529,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 
 <div class="sheet">
 
-<!-- ============ MARQUEE ============ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>Ψηφιακή Αποτύπωση iTero 5D</span><span>Εμφυτευματολογία</span><span>Αόρατη Ορθοδοντική</span><span>Invisalign & Spark</span><span>Smile Design</span><span>Αισθητική Οδοντιατρική</span><span>Πρόληψη</span>
@@ -538,7 +536,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </div>
 
-<!-- ============ DOCTORS / ABOUT ============ -->
 <section class="section" id="doctors">
   <div class="intro-head reveal">
     <span class="eyebrow">Οι Οδοντίατροι</span>
@@ -585,7 +582,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   <p class="pullquote reveal">«Ένα όμορφο χαμόγελο είναι η ελευθερία να γελάτε <span>χωρίς δεύτερη σκέψη</span>.»</p>
 </section>
 
-<!-- ============ SERVICES ============ -->
 <section class="services" id="services">
   <div class="section">
     <div class="services-head">
@@ -659,7 +655,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
 <section class="section" id="process">
   <div class="intro-head reveal">
     <span class="eyebrow">Η Διαδρομή σας</span>
@@ -673,7 +668,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ TECH / iTERO ============ -->
 <section class="tech" id="tech">
   <div class="section">
     <div class="tech-grid">
@@ -706,7 +700,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ VALUES ============ -->
 <section class="section values" id="values">
   <div class="reveal">
     <span class="eyebrow">Η Φιλοσοφία μας</span>
@@ -731,7 +724,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="section">
     <div class="rev-head">
@@ -793,7 +785,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
 <section class="section" id="faq">
   <div class="faq-wrap">
     <div class="faq-intro reveal">
@@ -829,7 +820,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="section">
     <div class="contact-grid">
@@ -876,7 +866,6 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer>
   <div class="foot">
     <div style="display:flex; align-items:center; gap:1.2rem;">
@@ -887,9 +876,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
   </div>
 </footer>
 
-</div><!-- /sheet -->
-
-<script>
+</div><script>
 (() => {
   'use strict';
 
