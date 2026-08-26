@@ -512,6 +512,51 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
 .ba-wide:hover .frame img{transform:scale(1.04)}
 .ba-wide .frame .zc{position:absolute;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.72);border:1px solid var(--line-d);display:grid;place-items:center}
 .ba-wide .frame .zc svg{width:18px;height:18px;stroke:var(--mint);stroke-width:2;fill:none}
+/* ---------- clinical cases (tabbed before / after) ---------- */
+.cases{margin-top:clamp(3rem,5vw,4.5rem)}
+.cases-head{max-width:62ch;margin:0 auto clamp(1.6rem,3vw,2.4rem);text-align:center}
+.cases-head h3{font-family:var(--ff-display);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.2;margin:0 0 .6rem}
+.cases-head p{color:var(--slate);font-size:.95rem;margin:0}
+.case-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:clamp(1.4rem,2.6vw,2rem)}
+.case-tab{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--ff-body);font-size:.9rem;font-weight:500;
+  color:var(--slate-ink);background:var(--paper-pure);border:1px solid var(--line);border-radius:999px;
+  padding:.7rem 1.15rem;cursor:pointer;transition:background .35s var(--ease-soft),color .35s var(--ease-soft),border-color .35s var(--ease-soft),transform .35s var(--ease-spring)}
+.case-tab .ct-n{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.16em;color:var(--ice-deep);transition:color .35s var(--ease-soft)}
+.case-tab:hover{border-color:var(--ice-deep);transform:translateY(-2px)}
+.case-tab[aria-selected="true"]{background:var(--slate-ink);color:#fff;border-color:var(--slate-ink)}
+.case-tab[aria-selected="true"] .ct-n{color:var(--ice)}
+.case-tab:focus-visible{outline:2px solid var(--ice-deep);outline-offset:3px}
+.case-panel{display:none}
+.case-panel.is-active{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2.4vw,1.8rem);animation:caseIn .55s var(--ease-expo) both}
+@keyframes caseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.case-shot{margin:0;background:var(--paper-pure);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -28px rgba(26,30,36,.45)}
+.case-shot .cs-btn{display:block;width:100%;padding:0;border:0;background:var(--paper);cursor:zoom-in;line-height:0}
+.case-shot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;transition:transform 1s var(--ease-expo)}
+.case-shot .cs-btn:hover img{transform:scale(1.03)}
+.case-shot .cs-btn:focus-visible{outline:2px solid var(--ice-deep);outline-offset:-2px}
+.case-shot figcaption{display:flex;align-items:center;gap:.7rem;padding:.9rem 1.1rem;border-top:1px solid var(--line);
+  font-size:.9rem;color:var(--slate-ink)}
+.cs-tag{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:.34rem .6rem;border-radius:999px}
+.cs-before{background:var(--paper);color:var(--slate);border:1px solid var(--line)}
+.cs-after{background:var(--slate-ink);color:var(--ice)}
+@media(max-width:760px){
+  .case-panel.is-active{grid-template-columns:1fr}
+  .case-tab{font-size:.82rem;padding:.6rem .9rem}
+}
+
+/* ---------- lightbox ---------- */
+.vlb{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:rgba(12,15,19,.92);
+  padding:clamp(1rem,4vw,3rem);opacity:0;transition:opacity .3s var(--ease-soft)}
+.vlb.open{display:grid;opacity:1}
+.vlb img{max-width:min(1280px,94vw);max-height:86vh;width:auto;height:auto;border-radius:10px;
+  box-shadow:0 40px 90px rgba(0,0,0,.55);transform:scale(.97);transition:transform .35s var(--ease-expo)}
+.vlb.open img{transform:scale(1)}
+.vlb-close{position:absolute;top:clamp(.8rem,2vw,1.6rem);right:clamp(.8rem,2vw,1.6rem);width:48px;height:48px;
+  border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff;
+  font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .3s}
+.vlb-close:hover{background:rgba(255,255,255,.22)}
+.vlb-cap{position:absolute;bottom:clamp(.9rem,2.4vw,1.8rem);left:0;right:0;text-align:center;color:rgba(255,255,255,.85);
+  font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -620,7 +665,7 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
     <article class="doc reveal d2">
       <div class="doc-img">
         <span class="doc-tag">Ειδικός Ορθοδοντικός</span>
-        <img src="https://raw.githubusercontent.com/agelmet/VOGIATZIS/8cedeabddbed180ebfaf28c3b9c458c60d6de030/vogiatzisimg.png" alt="Ο Δρ. Φώτης Βογιατζής, ειδικός ορθοδοντικός MSc, με λευκή ποδιά" loading="lazy">
+        <img src="assets/fotis-vogiatzis.webp" alt="Ο Δρ. Φώτης Βογιατζής, ειδικός ορθοδοντικός MSc, στο ιατρείο της Νέας Κηφισιάς" width="1280" height="1119" loading="lazy" decoding="async">
       </div>
       <div class="doc-body">
         <h3>Φώτης Βογιατζής</h3>
@@ -847,6 +892,77 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
           <span class="t">Ορθοδοντική Θεραπεία</span>
           <span class="k">Περιστατικό</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cases reveal">
+    <div class="cases-head">
+      <h3>Κλινικά περιστατικά</h3>
+      <p>Επιλέξτε ένα περιστατικό για να δείτε την αρχική και την τελική κατάσταση. Πατήστε πάνω σε μια φωτογραφία για μεγέθυνση.</p>
+    </div>
+    <div class="case-tabs" role="tablist" aria-label="Κλινικά περιστατικά">
+        <button class="case-tab" type="button" role="tab" id="case-t1" aria-controls="case-p1" aria-selected="true" data-case="1"><span class="ct-n">01</span>Περιστατικό 1</button>
+        <button class="case-tab" type="button" role="tab" id="case-t2" aria-controls="case-p2" aria-selected="false" data-case="2"><span class="ct-n">02</span>Περιστατικό 2</button>
+        <button class="case-tab" type="button" role="tab" id="case-t3" aria-controls="case-p3" aria-selected="false" data-case="3"><span class="ct-n">03</span>Περιστατικό 3</button>
+        <button class="case-tab" type="button" role="tab" id="case-t4" aria-controls="case-p4" aria-selected="false" data-case="4"><span class="ct-n">04</span>Περιστατικό 4</button>
+    </div>
+    <div class="case-panels">
+      <div class="case-panel is-active" id="case-p1" role="tabpanel" aria-labelledby="case-t1">
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-1-before.webp" data-cap="Περιστατικό 1 — Αρχική κατάσταση" aria-label="Μεγέθυνση: αρχική κατάσταση, περιστατικό 1">
+            <img src="assets/case-1-before.webp" alt="Περιστατικό 1 — ενδοστοματικές φωτογραφίες πριν την ορθοδοντική θεραπεία" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-before">Πριν</span>Αρχική κατάσταση</figcaption>
+        </figure>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-1-after.webp" data-cap="Περιστατικό 1 — Τελικό αποτέλεσμα" aria-label="Μεγέθυνση: τελικό αποτέλεσμα, περιστατικό 1">
+            <img src="assets/case-1-after.webp" alt="Περιστατικό 1 — ενδοστοματικές φωτογραφίες μετά την ολοκλήρωση της ορθοδοντικής θεραπείας" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-after">Μετά</span>Τελικό αποτέλεσμα</figcaption>
+        </figure>
+      </div>
+      <div class="case-panel" id="case-p2" role="tabpanel" aria-labelledby="case-t2" hidden>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-2-before.webp" data-cap="Περιστατικό 2 — Αρχική κατάσταση" aria-label="Μεγέθυνση: αρχική κατάσταση, περιστατικό 2">
+            <img src="assets/case-2-before.webp" alt="Περιστατικό 2 — ενδοστοματικές φωτογραφίες πριν την ορθοδοντική θεραπεία" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-before">Πριν</span>Αρχική κατάσταση</figcaption>
+        </figure>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-2-after.webp" data-cap="Περιστατικό 2 — Τελικό αποτέλεσμα" aria-label="Μεγέθυνση: τελικό αποτέλεσμα, περιστατικό 2">
+            <img src="assets/case-2-after.webp" alt="Περιστατικό 2 — ενδοστοματικές φωτογραφίες μετά την ολοκλήρωση της ορθοδοντικής θεραπείας" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-after">Μετά</span>Τελικό αποτέλεσμα</figcaption>
+        </figure>
+      </div>
+      <div class="case-panel" id="case-p3" role="tabpanel" aria-labelledby="case-t3" hidden>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-3-before.webp" data-cap="Περιστατικό 3 — Αρχική κατάσταση" aria-label="Μεγέθυνση: αρχική κατάσταση, περιστατικό 3">
+            <img src="assets/case-3-before.webp" alt="Περιστατικό 3 — ενδοστοματικές φωτογραφίες πριν την ορθοδοντική θεραπεία" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-before">Πριν</span>Αρχική κατάσταση</figcaption>
+        </figure>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-3-after.webp" data-cap="Περιστατικό 3 — Τελικό αποτέλεσμα" aria-label="Μεγέθυνση: τελικό αποτέλεσμα, περιστατικό 3">
+            <img src="assets/case-3-after.webp" alt="Περιστατικό 3 — ενδοστοματικές φωτογραφίες μετά την ολοκλήρωση της ορθοδοντικής θεραπείας" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-after">Μετά</span>Τελικό αποτέλεσμα</figcaption>
+        </figure>
+      </div>
+      <div class="case-panel" id="case-p4" role="tabpanel" aria-labelledby="case-t4" hidden>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-4-before.webp" data-cap="Περιστατικό 4 — Αρχική κατάσταση" aria-label="Μεγέθυνση: αρχική κατάσταση, περιστατικό 4">
+            <img src="assets/case-4-before.webp" alt="Περιστατικό 4 — ενδοστοματικές φωτογραφίες πριν την ορθοδοντική θεραπεία" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-before">Πριν</span>Αρχική κατάσταση</figcaption>
+        </figure>
+        <figure class="case-shot">
+          <button class="cs-btn" type="button" data-full="assets/case-4-after.webp" data-cap="Περιστατικό 4 — Τελικό αποτέλεσμα" aria-label="Μεγέθυνση: τελικό αποτέλεσμα, περιστατικό 4">
+            <img src="assets/case-4-after.webp" alt="Περιστατικό 4 — ενδοστοματικές φωτογραφίες μετά την ολοκλήρωση της ορθοδοντικής θεραπείας" width="1280" height="720" loading="lazy" decoding="async">
+          </button>
+          <figcaption><span class="cs-tag cs-after">Μετά</span>Τελικό αποτέλεσμα</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -1155,6 +1271,67 @@ footer{background:#111418;color:rgba(255,255,255,.4);position:relative;z-index:1
     w.addEventListener('pointermove', e => drag && move(e));
     ['pointerup','pointercancel','pointerleave'].forEach(ev => w.addEventListener(ev, () => drag = false));
   });
+})();
+</script>
+<div class="vlb" id="vlb" role="dialog" aria-modal="true" aria-label="Μεγέθυνση φωτογραφίας">
+  <button class="vlb-close" type="button" id="vlbClose" aria-label="Κλείσιμο">&times;</button>
+  <img id="vlbImg" src="" alt="">
+  <div class="vlb-cap" id="vlbCap"></div>
+</div>
+
+<script>
+(() => {
+  /* --- case tabs --- */
+  const tabs = Array.from(document.querySelectorAll('.case-tab'));
+  const panels = Array.from(document.querySelectorAll('.case-panel'));
+  function select(i){
+    tabs.forEach(t => t.setAttribute('aria-selected', String(+t.dataset.case === i)));
+    panels.forEach(p => {
+      const on = p.id === 'case-p' + i;
+      p.classList.toggle('is-active', on);
+      if (on) p.removeAttribute('hidden'); else p.setAttribute('hidden','');
+    });
+  }
+  tabs.forEach(t => {
+    t.addEventListener('click', () => select(+t.dataset.case));
+    t.addEventListener('keydown', e => {
+      const k = e.key;
+      if (k !== 'ArrowRight' && k !== 'ArrowLeft') return;
+      e.preventDefault();
+      const cur = tabs.indexOf(t);
+      const nxt = tabs[(cur + (k === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      nxt.focus(); select(+nxt.dataset.case);
+    });
+  });
+
+  /* --- lightbox --- */
+  const lb = document.getElementById('vlb');
+  const lbImg = document.getElementById('vlbImg');
+  const lbCap = document.getElementById('vlbCap');
+  let lastFocus = null;
+  function open(src, cap, alt){
+    lastFocus = document.activeElement;
+    lbImg.src = src; lbImg.alt = alt || cap || '';
+    lbCap.textContent = cap || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('vlbClose').focus();
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('.cs-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      const im = b.querySelector('img');
+      open(b.dataset.full, b.dataset.cap, im ? im.alt : '');
+    });
+  });
+  document.getElementById('vlbClose').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
 })();
 </script>
 </body>
